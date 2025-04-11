@@ -25,7 +25,6 @@ namespace LMS
             catch (Exception ex)
             {
                 ShowErrorMessage("Error initializing application ", ex);
-                ShowErrorMessage("Error initializing application ", ex);
             }
         }
 
