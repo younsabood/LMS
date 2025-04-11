@@ -5,7 +5,8 @@ using System.IO;
 using Spire.Pdf;
 using Spire.Doc;             
 using Spire.Xls;            
-using Spire.Presentation;   
+using Spire.Presentation;
+using System.ComponentModel;
 
 namespace LMS
 {
@@ -81,6 +82,56 @@ namespace LMS
             }
 
             return tempFilePath;
+        }
+        public static void ConvertWordToPdfAsync(string inputPath, Action<string> onSuccess, Action<Exception> onError)
+        {
+            var worker = new BackgroundWorker();
+            worker.DoWork += (s, e) =>
+            {
+                try
+                {
+                    // Call the existing static method
+                    e.Result = ConvertWordToPdf(inputPath);
+                }
+                catch (Exception ex)
+                {
+                    e.Result = ex;
+                }
+            };
+            worker.RunWorkerCompleted += (s, e) =>
+            {
+                if (e.Result is Exception ex)
+                    onError?.Invoke(ex);
+                else
+                    onSuccess?.Invoke(e.Result as string);
+            };
+            worker.RunWorkerAsync();
+        }
+
+        // Async PowerPoint Conversion
+        public static void ConvertPowerPointToPdfAsync(string inputPath, Action<string> onSuccess, Action<Exception> onError)
+        {
+            var worker = new BackgroundWorker();
+            worker.DoWork += (s, e) =>
+            {
+                try
+                {
+                    // Call the existing static method
+                    e.Result = ConvertPowerPointToPdf(inputPath);
+                }
+                catch (Exception ex)
+                {
+                    e.Result = ex;
+                }
+            };
+            worker.RunWorkerCompleted += (s, e) =>
+            {
+                if (e.Result is Exception ex)
+                    onError?.Invoke(ex);
+                else
+                    onSuccess?.Invoke(e.Result as string);
+            };
+            worker.RunWorkerAsync();
         }
         private static string GetTempFilePath(string inputPath)
         {

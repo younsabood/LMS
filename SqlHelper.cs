@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace LMS
@@ -13,7 +11,6 @@ namespace LMS
         private readonly string _connectionString;
         private bool _disposed = false;
 
-        // Initialize the database connection with the custom connection string
         public SqlHelper(string connectionString)
         {
             if (string.IsNullOrWhiteSpace(connectionString))
@@ -22,106 +19,154 @@ namespace LMS
             _connectionString = connectionString;
         }
 
-        // Asynchronous method to execute non-query commands (INSERT, UPDATE, DELETE)
-        public async Task<int> ExecuteNonQueryAsync(string query, params SqlParameter[] parameters)
+        public Task<int> ExecuteNonQueryAsync(string query, params SqlParameter[] parameters)
         {
             if (string.IsNullOrWhiteSpace(query))
                 throw new ArgumentException("Query cannot be null or empty.", nameof(query));
 
-            try
+            var tcs = new TaskCompletionSource<int>();
+            var worker = new BackgroundWorker();
+
+            worker.DoWork += (s, e) =>
             {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
+                var args = (Tuple<string, SqlParameter[]>)e.Argument;
+                try
                 {
-                    await connection.OpenAsync(); // Open the connection asynchronously
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (var conn = new SqlConnection(_connectionString))
                     {
-                        if (parameters != null && parameters.Length > 0)
-                            command.Parameters.AddRange(parameters);
-
-                        // Execute the query asynchronously and return the number of affected rows
-                        return await command.ExecuteNonQueryAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogError(ex, "ExecuteNonQueryAsync");
-                throw; // Rethrow the exception after logging
-            }
-        }
-
-        // Asynchronous method to execute scalar queries (e.g., COUNT, SUM)
-        public async Task<object> ExecuteScalarAsync(string query, params SqlParameter[] parameters)
-        {
-            if (string.IsNullOrWhiteSpace(query))
-                throw new ArgumentException("Query cannot be null or empty.", nameof(query));
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    await connection.OpenAsync(); // Open the connection asynchronously
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        if (parameters != null && parameters.Length > 0)
-                            command.Parameters.AddRange(parameters);
-
-                        // Execute the query asynchronously and return the scalar result
-                        return await command.ExecuteScalarAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogError(ex, "ExecuteScalarAsync");
-                throw; // Rethrow the exception after logging
-            }
-        }
-
-        // Asynchronous method to execute queries that return a DataTable (e.g., SELECT)
-        public async Task<DataTable> ExecuteQueryAsync(string query, params SqlParameter[] parameters)
-        {
-            if (string.IsNullOrWhiteSpace(query))
-                throw new ArgumentException("Query cannot be null or empty.", nameof(query));
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    await connection.OpenAsync(); // Open the connection asynchronously
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        if (parameters != null && parameters.Length > 0)
-                            command.Parameters.AddRange(parameters);
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        conn.Open();
+                        using (var cmd = new SqlCommand(args.Item1, conn))
                         {
-                            DataTable dataTable = new DataTable();
-                            await Task.Run(() => adapter.Fill(dataTable)); // Fill the DataTable asynchronously
-                            return dataTable;
+                            if (args.Item2 != null)
+                                cmd.Parameters.AddRange(args.Item2);
+                            e.Result = cmd.ExecuteNonQuery();
                         }
                     }
                 }
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                {
+                    LogError(ex, "ExecuteNonQueryAsync");
+                    e.Result = ex;
+                }
+            };
+
+            worker.RunWorkerCompleted += (s, e) =>
             {
-                LogError(ex, "ExecuteQueryAsync");
-                throw; // Rethrow the exception after logging
-            }
+                if (e.Error != null)
+                    tcs.SetException(e.Error);
+                else if (e.Result is Exception ex)
+                    tcs.SetException(ex);
+                else
+                    tcs.SetResult((int)e.Result);
+                worker.Dispose();
+            };
+
+            worker.RunWorkerAsync(Tuple.Create(query, parameters));
+            return tcs.Task;
         }
 
-        // Error logging method
+        public Task<object> ExecuteScalarAsync(string query, params SqlParameter[] parameters)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+                throw new ArgumentException("Query cannot be null or empty.", nameof(query));
+
+            var tcs = new TaskCompletionSource<object>();
+            var worker = new BackgroundWorker();
+
+            worker.DoWork += (s, e) =>
+            {
+                var args = (Tuple<string, SqlParameter[]>)e.Argument;
+                try
+                {
+                    using (var conn = new SqlConnection(_connectionString))
+                    {
+                        conn.Open();
+                        using (var cmd = new SqlCommand(args.Item1, conn))
+                        {
+                            if (args.Item2 != null)
+                                cmd.Parameters.AddRange(args.Item2);
+                            e.Result = cmd.ExecuteScalar();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError(ex, "ExecuteScalarAsync");
+                    e.Result = ex;
+                }
+            };
+
+            worker.RunWorkerCompleted += (s, e) =>
+            {
+                if (e.Error != null)
+                    tcs.SetException(e.Error);
+                else if (e.Result is Exception ex)
+                    tcs.SetException(ex);
+                else
+                    tcs.SetResult(e.Result);
+                worker.Dispose();
+            };
+
+            worker.RunWorkerAsync(Tuple.Create(query, parameters));
+            return tcs.Task;
+        }
+
+        public Task<DataTable> ExecuteQueryAsync(string query, params SqlParameter[] parameters)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+                throw new ArgumentException("Query cannot be null or empty.", nameof(query));
+
+            var tcs = new TaskCompletionSource<DataTable>();
+            var worker = new BackgroundWorker();
+
+            worker.DoWork += (s, e) =>
+            {
+                var args = (Tuple<string, SqlParameter[]>)e.Argument;
+                try
+                {
+                    using (var conn = new SqlConnection(_connectionString))
+                    {
+                        conn.Open();
+                        using (var cmd = new SqlCommand(args.Item1, conn))
+                        {
+                            if (args.Item2 != null)
+                                cmd.Parameters.AddRange(args.Item2);
+                            using (var adapter = new SqlDataAdapter(cmd))
+                            {
+                                var dt = new DataTable();
+                                adapter.Fill(dt);
+                                e.Result = dt;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogError(ex, "ExecuteQueryAsync");
+                    e.Result = ex;
+                }
+            };
+
+            worker.RunWorkerCompleted += (s, e) =>
+            {
+                if (e.Error != null)
+                    tcs.SetException(e.Error);
+                else if (e.Result is Exception ex)
+                    tcs.SetException(ex);
+                else
+                    tcs.SetResult((DataTable)e.Result);
+                worker.Dispose();
+            };
+
+            worker.RunWorkerAsync(Tuple.Create(query, parameters));
+            return tcs.Task;
+        }
+
         private void LogError(Exception ex, string methodName)
         {
-            // Log the error to a file, database, or monitoring system
             Console.WriteLine($"Error in {methodName}: {ex.Message}");
-            // You can replace this with a proper logging framework like Serilog, NLog, etc.
         }
 
-        // Dispose pattern implementation
         public void Dispose()
         {
             Dispose(true);
@@ -134,7 +179,7 @@ namespace LMS
             {
                 if (disposing)
                 {
-                    // Dispose managed resources here if needed
+                    // Dispose managed resources if any
                 }
                 _disposed = true;
             }
