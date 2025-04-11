@@ -34,6 +34,9 @@
             this.drag = new Guna.UI2.WinForms.Guna2Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Reset = new Guna.UI2.WinForms.Guna2Button();
+            this.eupdate = new System.Windows.Forms.Label();
+            this.supdate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.contentDomain = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,9 +63,6 @@
             this.UserName = new System.Windows.Forms.Label();
             this.AccountPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.supdate = new System.Windows.Forms.Label();
-            this.eupdate = new System.Windows.Forms.Label();
-            this.Reset = new Guna.UI2.WinForms.Guna2Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -74,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicPDF1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qanum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deffnum)).BeginInit();
+            this.dragimage.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -180,9 +181,7 @@
             this.panel2.Controls.Add(this.contentDomain);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.language);
-            this.panel2.Controls.Add(this.PicPDF2);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.PicPDF1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.SourceDocument);
             this.panel2.Controls.Add(this.ExampleExam);
@@ -199,9 +198,44 @@
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel2_DragEnter);
             this.panel2.DoubleClick += new System.EventHandler(this.panel2_DoubleClick);
             // 
+            // Reset
+            // 
+            this.Reset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Reset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Reset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Reset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Reset.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reset.ForeColor = System.Drawing.Color.White;
+            this.Reset.Location = new System.Drawing.Point(917, 296);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(198, 45);
+            this.Reset.TabIndex = 17;
+            this.Reset.Text = "Reset";
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            // 
+            // eupdate
+            // 
+            this.eupdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.eupdate.AutoSize = true;
+            this.eupdate.Location = new System.Drawing.Point(224, 318);
+            this.eupdate.Name = "eupdate";
+            this.eupdate.Size = new System.Drawing.Size(0, 23);
+            this.eupdate.TabIndex = 16;
+            // 
+            // supdate
+            // 
+            this.supdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.supdate.AutoSize = true;
+            this.supdate.Location = new System.Drawing.Point(224, 272);
+            this.supdate.Name = "supdate";
+            this.supdate.Size = new System.Drawing.Size(0, 23);
+            this.supdate.TabIndex = 15;
+            // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 68);
@@ -243,7 +277,7 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 110);
@@ -279,16 +313,16 @@
             // 
             // PicPDF2
             // 
-            this.PicPDF2.Location = new System.Drawing.Point(917, 13);
+            this.PicPDF2.Location = new System.Drawing.Point(997, 38);
             this.PicPDF2.Name = "PicPDF2";
-            this.PicPDF2.Size = new System.Drawing.Size(185, 206);
+            this.PicPDF2.Size = new System.Drawing.Size(133, 157);
             this.PicPDF2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicPDF2.TabIndex = 5;
             this.PicPDF2.TabStop = false;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 196);
@@ -299,16 +333,16 @@
             // 
             // PicPDF1
             // 
-            this.PicPDF1.Location = new System.Drawing.Point(711, 13);
+            this.PicPDF1.Location = new System.Drawing.Point(22, 38);
             this.PicPDF1.Name = "PicPDF1";
-            this.PicPDF1.Size = new System.Drawing.Size(185, 206);
+            this.PicPDF1.Size = new System.Drawing.Size(133, 157);
             this.PicPDF1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicPDF1.TabIndex = 4;
             this.PicPDF1.TabStop = false;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 26);
@@ -319,7 +353,7 @@
             // 
             // SourceDocument
             // 
-            this.SourceDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.SourceDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.SourceDocument.AutoSize = true;
             this.SourceDocument.Location = new System.Drawing.Point(3, 272);
@@ -330,7 +364,7 @@
             // 
             // ExampleExam
             // 
-            this.ExampleExam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.ExampleExam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ExampleExam.AutoSize = true;
             this.ExampleExam.Location = new System.Drawing.Point(3, 318);
@@ -341,7 +375,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 154);
@@ -436,6 +470,8 @@
             this.dragimage.AllowDrop = true;
             this.dragimage.BackgroundImage = global::LMS.Properties.Resources.icons8_upload_to_the_cloud_1001;
             this.dragimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dragimage.Controls.Add(this.PicPDF1);
+            this.dragimage.Controls.Add(this.PicPDF2);
             this.dragimage.Dock = System.Windows.Forms.DockStyle.Top;
             this.dragimage.Location = new System.Drawing.Point(15, 15);
             this.dragimage.Name = "dragimage";
@@ -571,41 +607,6 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // supdate
-            // 
-            this.supdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.supdate.AutoSize = true;
-            this.supdate.Location = new System.Drawing.Point(224, 272);
-            this.supdate.Name = "supdate";
-            this.supdate.Size = new System.Drawing.Size(0, 23);
-            this.supdate.TabIndex = 15;
-            // 
-            // eupdate
-            // 
-            this.eupdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.eupdate.AutoSize = true;
-            this.eupdate.Location = new System.Drawing.Point(224, 318);
-            this.eupdate.Name = "eupdate";
-            this.eupdate.Size = new System.Drawing.Size(0, 23);
-            this.eupdate.TabIndex = 16;
-            // 
-            // Reset
-            // 
-            this.Reset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Reset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Reset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Reset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Reset.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reset.ForeColor = System.Drawing.Color.White;
-            this.Reset.Location = new System.Drawing.Point(917, 296);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(198, 45);
-            this.Reset.TabIndex = 17;
-            this.Reset.Text = "Reset";
-            this.Reset.Click += new System.EventHandler(this.Reset_Click);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -639,6 +640,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicPDF1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qanum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deffnum)).EndInit();
+            this.dragimage.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

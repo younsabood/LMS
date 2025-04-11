@@ -13,7 +13,15 @@ namespace LMS
     {
         private readonly SqlHelper _sqlHelper;
         private const string PDF_FILTER = "Supported Files (*.pdf;*.docx;*.pptx)|*.pdf;*.docx;*.pptx";
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
+                return cp;
+            }
+        }
         public LMSHome()
         {
             try
@@ -21,6 +29,9 @@ namespace LMS
                 InitializeComponent();
                 _sqlHelper = new SqlHelper(Properties.Settings.Default.ConnectionString);
                 InitializeUI();
+                this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+                this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+                this.SetStyle(ControlStyles.UserPaint, true);
             }
             catch (Exception ex)
             {
@@ -236,8 +247,6 @@ namespace LMS
 
                 var formattedJson = JsonExtractor.ExtractAndFormatJson(response);
                 richTextBox1.Text = formattedJson;
-                MessageBox.Show("Content Generated Successfully", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

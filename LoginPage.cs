@@ -16,9 +16,17 @@ namespace LMS
         private const string ClientId = "965955892432-bjho48goiifr5vnq1v3c6efgfgu00str.apps.googleusercontent.com";
         private const string ClientSecret = "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";
         private const string RedirectUri = "http://localhost:8080/";
-
         private UserInfo _userInfo;
         private TokenResponse _tokenResponse;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
+                return cp;
+            }
+        }
         public LoginPage()
         {
             InitializeComponent();
