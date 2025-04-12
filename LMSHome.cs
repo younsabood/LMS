@@ -7,22 +7,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenerativeAI.Types;
 
-
 namespace LMS
 {
     public partial class LMSHome : Form
     {
         private readonly SqlHelper _sqlHelper;
         private const string PDF_FILTER = "Supported Files (*.pdf;*.docx;*.pptx)|*.pdf;*.docx;*.pptx";
+
         protected override CreateParams CreateParams
         {
             get
             {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
-                return cp;
+                try
+                {
+                    CreateParams cp = base.CreateParams;
+                    cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
+                    return cp;
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage("Error setting CreateParams", ex);
+                    throw; // Re-throw to avoid breaking the application flow.
+                }
             }
         }
+
         public LMSHome()
         {
             try
@@ -36,7 +45,7 @@ namespace LMS
             }
             catch (Exception ex)
             {
-                ShowErrorMessage("Error initializing application ", ex);
+                ShowErrorMessage("Error initializing application", ex);
             }
         }
 
@@ -86,7 +95,6 @@ namespace LMS
             try
             {
                 ResetForm();
-
             }
             catch (Exception ex)
             {
@@ -121,16 +129,13 @@ namespace LMS
             try
             {
                 if (!ValidateInputs()) return;
-
                 var sourceFile = await UploadFileAsync(Path_1.Text, supdate);
                 supdate.Text = $"Name : {sourceFile.DisplayName} ID ( {sourceFile.Name} )";
-
                 var exampleFile = await GetExampleFileAsync();
                 if (exampleFile != null)
                 {
                     eupdate.Text = $"Name : {exampleFile.DisplayName} ID ( {exampleFile.Name} )";
                 }
-
                 var response = await GenerateContent(sourceFile, exampleFile);
                 ProcessResponse(response);
                 ResetForm();
@@ -150,13 +155,11 @@ namespace LMS
                     ShowErrorMessage("Please fill all required fields");
                     return false;
                 }
-
                 if (qanum.Value < 10 || deffnum.Value < 1)
                 {
                     ShowErrorMessage("Minimum requirements: 10 questions and difficulty level 1+");
                     return false;
                 }
-
                 return true;
             }
             catch (Exception ex)
@@ -172,7 +175,6 @@ namespace LMS
             {
                 if (string.IsNullOrEmpty(Path_2.Text) || !File.Exists(Path_2.Text))
                     return null;
-
                 return await UploadFileAsync(Path_2.Text, eupdate);
             }
             catch (Exception ex)
@@ -245,7 +247,7 @@ namespace LMS
                     ShowErrorMessage("Empty response received from AI service");
                     return;
                 }
-                richTextBox1.Text = response.ToString();
+
                 var formattedJson = JsonExtractor.ExtractAndFormatJson(response);
                 var result = QuestionsOBJ.FromJson(formattedJson);
                 var questionDetailsList = new List<QuestionsOBJ.QuestionDetailsOption>();
@@ -266,6 +268,7 @@ namespace LMS
                         });
                     }
                 }
+
                 QAShow qAShow = new QAShow(questionDetailsList);
                 qAShow.Show();
             }
@@ -307,7 +310,6 @@ namespace LMS
                 return files.Length == 1 &&
                        (Path.GetExtension(files[0]).Equals(".pdf", StringComparison.OrdinalIgnoreCase) ||
                         Path.GetExtension(files[0]).Equals(".docx", StringComparison.OrdinalIgnoreCase) ||
-                        Path.GetExtension(files[0]).Equals(".xlsx", StringComparison.OrdinalIgnoreCase) ||
                         Path.GetExtension(files[0]).Equals(".pptx", StringComparison.OrdinalIgnoreCase)) &&
                        !BothPathsFilled();
             }
@@ -432,7 +434,6 @@ namespace LMS
         private void panel2_DoubleClick(object sender, EventArgs e) => SharedDoubleClickLogic();
         #endregion
     }
-
 
     public class GenerationParameters
     {

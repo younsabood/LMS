@@ -10,6 +10,7 @@ namespace LMS
 {
     public static class AI
     {
+        public static double counter;
         public static readonly GeminiModel GeminiModel = CreateGeminiModel();
         public static string LanguageAI;
         private static GeminiModel CreateGeminiModel()

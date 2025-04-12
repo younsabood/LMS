@@ -13,12 +13,19 @@ namespace LMS
         private string _correctAnswer;
         private string _Explanation;
         private string _Difficulty;
-
+        public double QAencrement;
         public HtmlMultipleChoice()
         {
-            InitializeWebView();
-            this.Height = 600;
-            this.Width = 600;
+            try
+            {
+                InitializeWebView();
+                this.Height = 600;
+                this.Width = 600;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing form: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public string QuestionText { get; set; } = "Question";
@@ -26,37 +33,84 @@ namespace LMS
         public string CorrectAnswer
         {
             get => _correctAnswer;
-            set { _correctAnswer = value; RenderHtml(); }
+            set
+            {
+                try
+                {
+                    _correctAnswer = value;
+                    RenderHtml();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error setting CorrectAnswer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public string Explanation
         {
             get => _Explanation;
-            set { _Explanation = value; RenderHtml(); }
+            set
+            {
+                try
+                {
+                    _Explanation = value;
+                    RenderHtml();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error setting Explanation: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public string Difficulty
         {
             get => _Difficulty;
-            set { _Difficulty = value; RenderHtml(); }
+            set
+            {
+                try
+                {
+                    _Difficulty = value;
+                    RenderHtml();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error setting Difficulty: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private async void InitializeWebView()
         {
-            webView = new WebView2 { Dock = DockStyle.Fill };
-            Controls.Add(webView);
-            await webView.EnsureCoreWebView2Async(null);
-
-            // Add message handler
-            webView.CoreWebView2.WebMessageReceived += (sender, args) =>
+            try
             {
-                if (args.TryGetWebMessageAsString() == "correct")
-                {
-                    Exam.counter++;
-                }
-            };
+                webView = new WebView2 { Dock = DockStyle.Fill };
+                Controls.Add(webView);
+                await webView.EnsureCoreWebView2Async(null);
 
-            RenderHtml();
+                // Add message handler
+                webView.CoreWebView2.WebMessageReceived += (sender, args) =>
+                {
+                    try
+                    {
+                        if (args.TryGetWebMessageAsString() == "correct")
+                        {
+                            AI.counter += QAencrement;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error handling web message: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                };
+
+                RenderHtml();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing WebView: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public string[] Options
@@ -64,27 +118,43 @@ namespace LMS
             get => _options;
             set
             {
-                if (value == null || value.Length != 4)
-                    throw new ArgumentException("Exactly four options required");
-                _options = value;
-                RenderHtml();
+                try
+                {
+                    if (value == null || value.Length != 4)
+                        throw new ArgumentException("Exactly four options required");
+                    _options = value;
+                    RenderHtml();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error setting Options: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         public async Task ResetAsync()
         {
-            if (webView?.CoreWebView2 != null)
+            try
             {
-                await webView.CoreWebView2.ExecuteScriptAsync(
-                    "document.querySelectorAll('input').forEach(i => i.checked = false);");
+                if (webView?.CoreWebView2 != null)
+                {
+                    await webView.CoreWebView2.ExecuteScriptAsync(
+                        "document.querySelectorAll('input').forEach(i => i.checked = false);");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error resetting WebView: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void RenderHtml()
         {
-            if (webView?.CoreWebView2 == null || _options == null || _correctAnswer == null) return;
+            try
+            {
+                if (webView?.CoreWebView2 == null || _options == null || _correctAnswer == null) return;
 
-            var html = $@"
+                var html = $@"
                 <!DOCTYPE html>
                 <html lang='en'>
                 <head>
@@ -163,19 +233,31 @@ namespace LMS
                 </body>
                 </html>";
 
-            webView.NavigateToString(html);
+                webView.NavigateToString(html);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error rendering HTML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private string GenerateOptionHtml(int index)
         {
-            return $@"
+            try
+            {
+                return $@"
             <label class='option'>
                 <span>{_options[index]}</span>
                 <input type='radio' name='answer' value='{_options[index]}'>
                 <span class='custom-radio'></span>
             </label>";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error generating option HTML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
         }
-
         private string GetNewStyles()
         {
             var baseStyles = @"

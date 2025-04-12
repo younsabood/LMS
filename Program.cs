@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,31 +13,27 @@ namespace LMS
         {
             try
             {
+                CheckTrialPeriod();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-
-                // Show the splash screen and check login status
                 using (var splashScreen = new splash())
                 {
                     DialogResult loginStatus = splashScreen.ShowDialog();
-
-                    // If login is successful, proceed to the Home form
                     if (loginStatus == DialogResult.OK)
                     {
                         Application.Run(new LMSHome());
                     }
                     else
                     {
-                        // Otherwise, show the LoginPage
                         using (var loginPage = new LoginPage())
                         {
                             if (loginPage.ShowDialog() == DialogResult.OK)
                             {
-                                Application.Run(new LMSHome()); // Open Home after successful login
+                                Application.Run(new LMSHome()); 
                             }
                             else
                             {
-                                Application.Exit(); // Exit if login fails or is canceled
+                                Application.Exit();
                             }
                         }
                     }
@@ -46,6 +43,47 @@ namespace LMS
             {
                 MessageBox.Show($"An error occurred while running the application: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
+            }
+        }
+        private static void CheckTrialPeriod()
+        {
+            DateTime? storedStartDate = GetTrialStartDate();
+            DateTime currentDate = DateTime.Today;
+
+            if (storedStartDate == null)
+            {
+                SaveTrialStartDate(currentDate);
+                storedStartDate = currentDate;
+            }
+
+            DateTime expirationDate = storedStartDate.Value.AddDays(30);
+
+            if (currentDate > expirationDate)
+            {
+                MessageBox.Show("Your 30-day trial has expired. Please purchase a license.", "Trial Expired", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Application.Exit();
+            }
+        }
+
+        private static DateTime? GetTrialStartDate()
+        {
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 StartDate FROM auth.TrialInfo", conn); // Add schema here
+                var result = cmd.ExecuteScalar();
+                return result == null ? (DateTime?)null : Convert.ToDateTime(result);
+            }
+        }
+
+        private static void SaveTrialStartDate(DateTime startDate)
+        {
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO auth.TrialInfo (StartDate) VALUES (@StartDate)", conn); // Add schema here
+                cmd.Parameters.AddWithValue("@StartDate", startDate);
+                cmd.ExecuteNonQuery();
             }
         }
     }

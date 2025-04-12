@@ -4,9 +4,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-/// <summary>
-/// Provides methods for extracting and validating JSON data from text input.
-/// </summary>
 public static class JsonExtractor
 {
     private static readonly Regex CodeBlockRegex = new Regex(

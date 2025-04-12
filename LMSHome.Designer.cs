@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LMSHome));
             this.TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.drag = new Guna.UI2.WinForms.Guna2Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.PicPDF2 = new System.Windows.Forms.PictureBox();
+            this.PicPDF1 = new System.Windows.Forms.PictureBox();
             this.Reset = new Guna.UI2.WinForms.Guna2Button();
             this.eupdate = new System.Windows.Forms.Label();
             this.supdate = new System.Windows.Forms.Label();
@@ -50,6 +53,7 @@
             this.deffnum = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.type = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Start = new Guna.UI2.WinForms.Guna2Button();
+            this.dragimage = new Guna.UI2.WinForms.Guna2Panel();
             this.Path_2 = new System.Windows.Forms.Label();
             this.Path_1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -58,27 +62,22 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Gmail = new System.Windows.Forms.Label();
             this.UserName = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.PicPDF2 = new System.Windows.Forms.PictureBox();
-            this.PicPDF1 = new System.Windows.Forms.PictureBox();
-            this.dragimage = new Guna.UI2.WinForms.Guna2Panel();
             this.AccountPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.drag.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicPDF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicPDF1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qanum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deffnum)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicPDF2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicPDF1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +86,6 @@
             this.TabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
-            this.TabControl.Controls.Add(this.tabPage3);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl.ItemSize = new System.Drawing.Size(180, 40);
             this.TabControl.Location = new System.Drawing.Point(0, 0);
@@ -125,7 +123,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.tabPage1.Size = new System.Drawing.Size(1187, 748);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Uplade";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // guna2GroupBox2
@@ -195,6 +193,24 @@
             this.panel2.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel2_DragDrop);
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel2_DragEnter);
             this.panel2.DoubleClick += new System.EventHandler(this.panel2_DoubleClick);
+            // 
+            // PicPDF2
+            // 
+            this.PicPDF2.Location = new System.Drawing.Point(843, 26);
+            this.PicPDF2.Name = "PicPDF2";
+            this.PicPDF2.Size = new System.Drawing.Size(133, 157);
+            this.PicPDF2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicPDF2.TabIndex = 5;
+            this.PicPDF2.TabStop = false;
+            // 
+            // PicPDF1
+            // 
+            this.PicPDF1.Location = new System.Drawing.Point(982, 26);
+            this.PicPDF1.Name = "PicPDF1";
+            this.PicPDF1.Size = new System.Drawing.Size(133, 157);
+            this.PicPDF1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicPDF1.TabIndex = 4;
+            this.PicPDF1.TabStop = false;
             // 
             // Reset
             // 
@@ -443,6 +459,24 @@
             this.Start.Text = "Start Uploade";
             this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
+            // dragimage
+            // 
+            this.dragimage.AllowDrop = true;
+            this.dragimage.BackgroundImage = global::LMS.Properties.Resources.icons8_upload_to_the_cloud_1001;
+            this.dragimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dragimage.BorderColor = System.Drawing.Color.Black;
+            this.dragimage.BorderRadius = 5;
+            this.dragimage.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.dragimage.BorderThickness = 1;
+            this.dragimage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dragimage.Location = new System.Drawing.Point(15, 15);
+            this.dragimage.Name = "dragimage";
+            this.dragimage.Size = new System.Drawing.Size(1145, 232);
+            this.dragimage.TabIndex = 0;
+            this.dragimage.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragimage_DragDrop);
+            this.dragimage.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragimage_DragEnter);
+            this.dragimage.DoubleClick += new System.EventHandler(this.dragimage_DoubleClick);
+            // 
             // Path_2
             // 
             this.Path_2.AutoSize = true;
@@ -463,13 +497,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.richTextBox1);
             this.tabPage2.Controls.Add(this.guna2GroupBox1);
             this.tabPage2.Location = new System.Drawing.Point(184, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(1187, 748);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Account ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // guna2GroupBox1
@@ -546,63 +581,6 @@
             this.UserName.Text = "label1";
             this.UserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.AutoScroll = true;
-            this.tabPage3.Controls.Add(this.richTextBox1);
-            this.tabPage3.Location = new System.Drawing.Point(184, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(30);
-            this.tabPage3.Size = new System.Drawing.Size(1187, 748);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(30, 30);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1127, 688);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // PicPDF2
-            // 
-            this.PicPDF2.Location = new System.Drawing.Point(982, 13);
-            this.PicPDF2.Name = "PicPDF2";
-            this.PicPDF2.Size = new System.Drawing.Size(133, 157);
-            this.PicPDF2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicPDF2.TabIndex = 5;
-            this.PicPDF2.TabStop = false;
-            // 
-            // PicPDF1
-            // 
-            this.PicPDF1.Location = new System.Drawing.Point(843, 13);
-            this.PicPDF1.Name = "PicPDF1";
-            this.PicPDF1.Size = new System.Drawing.Size(133, 157);
-            this.PicPDF1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicPDF1.TabIndex = 4;
-            this.PicPDF1.TabStop = false;
-            // 
-            // dragimage
-            // 
-            this.dragimage.AllowDrop = true;
-            this.dragimage.BackgroundImage = global::LMS.Properties.Resources.icons8_upload_to_the_cloud_1001;
-            this.dragimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dragimage.BorderColor = System.Drawing.Color.Black;
-            this.dragimage.BorderRadius = 5;
-            this.dragimage.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.dragimage.BorderThickness = 1;
-            this.dragimage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dragimage.Location = new System.Drawing.Point(15, 15);
-            this.dragimage.Name = "dragimage";
-            this.dragimage.Size = new System.Drawing.Size(1145, 232);
-            this.dragimage.TabIndex = 0;
-            this.dragimage.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragimage_DragDrop);
-            this.dragimage.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragimage_DragEnter);
-            this.dragimage.DoubleClick += new System.EventHandler(this.dragimage_DoubleClick);
-            // 
             // AccountPic
             // 
             this.AccountPic.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -616,6 +594,14 @@
             this.AccountPic.TabStop = false;
             this.AccountPic.UseTransparentBackground = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(9, 183);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(1170, 544);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
             // LMSHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -623,11 +609,12 @@
             this.ClientSize = new System.Drawing.Size(1375, 756);
             this.Controls.Add(this.TabControl);
             this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "LMSHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Home";
+            this.Text = "NexusPDF Demo";
             this.Load += new System.EventHandler(this.Home_Load);
             this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -637,15 +624,14 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicPDF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicPDF1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qanum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deffnum)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicPDF2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicPDF1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountPic)).EndInit();
             this.ResumeLayout(false);
 
@@ -662,7 +648,6 @@
         private System.Windows.Forms.Label Gmail;
         private System.Windows.Forms.Label UserName;
         private Guna.UI2.WinForms.Guna2CirclePictureBox AccountPic;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label Path_2;
         private System.Windows.Forms.Label Path_1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;

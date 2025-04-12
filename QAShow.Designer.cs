@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.exam = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +49,17 @@
             this.panel1.Size = new System.Drawing.Size(1381, 694);
             this.panel1.TabIndex = 0;
             // 
+            // exam
+            // 
+            this.exam.AutoScroll = true;
+            this.exam.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.exam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exam.Location = new System.Drawing.Point(0, 0);
+            this.exam.Name = "exam";
+            this.exam.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.exam.Size = new System.Drawing.Size(1381, 623);
+            this.exam.TabIndex = 1;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
@@ -60,19 +71,14 @@
             this.panel2.Size = new System.Drawing.Size(1381, 71);
             this.panel2.TabIndex = 0;
             // 
-            // exam
+            // label2
             // 
-            this.exam.AutoScroll = true;
-            this.exam.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.exam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exam.Location = new System.Drawing.Point(0, 0);
-            this.exam.Name = "exam";
-            this.exam.Size = new System.Drawing.Size(1381, 623);
-            this.exam.TabIndex = 1;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(159, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
             // 
             // label1
             // 
@@ -83,14 +89,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // label2
+            // timer1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(308, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // QAShow
             // 
@@ -101,6 +102,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "QAShow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QAShow";
             this.Shown += new System.EventHandler(this.QAShow_Shown);
             this.panel1.ResumeLayout(false);

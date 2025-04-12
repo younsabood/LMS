@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.logparent = new System.Windows.Forms.Panel();
             this.log = new System.Windows.Forms.Panel();
+            this.getapi = new System.Windows.Forms.Label();
             this.api = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.google = new Guna.UI2.WinForms.Guna2Button();
@@ -76,6 +77,7 @@
             // 
             // log
             // 
+            this.log.Controls.Add(this.getapi);
             this.log.Controls.Add(this.api);
             this.log.Controls.Add(this.label4);
             this.log.Controls.Add(this.google);
@@ -84,6 +86,19 @@
             this.log.Name = "log";
             this.log.Size = new System.Drawing.Size(448, 594);
             this.log.TabIndex = 0;
+            // 
+            // getapi
+            // 
+            this.getapi.AutoSize = true;
+            this.getapi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.getapi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.getapi.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.getapi.Location = new System.Drawing.Point(14, 551);
+            this.getapi.Name = "getapi";
+            this.getapi.Size = new System.Drawing.Size(232, 29);
+            this.getapi.TabIndex = 25;
+            this.getapi.Text = "How To Get API Key...";
+            this.getapi.Click += new System.EventHandler(this.getapi_Click);
             // 
             // api
             // 
@@ -99,7 +114,7 @@
             this.api.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.api.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.api.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.api.Location = new System.Drawing.Point(67, 352);
+            this.api.Location = new System.Drawing.Point(67, 254);
             this.api.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.api.Name = "api";
             this.api.PasswordChar = '*';
@@ -112,7 +127,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 315);
+            this.label4.Location = new System.Drawing.Point(53, 217);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 23);
             this.label4.TabIndex = 23;
@@ -133,7 +148,7 @@
             this.google.ForeColor = System.Drawing.Color.Black;
             this.google.Image = global::LMS.Properties.Resources.icons8_google_logo_100;
             this.google.ImageSize = new System.Drawing.Size(40, 40);
-            this.google.Location = new System.Drawing.Point(67, 430);
+            this.google.Location = new System.Drawing.Point(67, 332);
             this.google.Name = "google";
             this.google.Size = new System.Drawing.Size(317, 51);
             this.google.TabIndex = 13;
@@ -215,6 +230,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton exit;
         private Guna.UI2.WinForms.Guna2TextBox api;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label getapi;
     }
 }
 

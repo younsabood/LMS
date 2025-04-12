@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms; // Add this for MessageBox
 
 namespace LMS
 {
@@ -20,22 +21,30 @@ namespace LMS
             // Helper method to get the correct answer text
             public string GetCorrectAnswerText()
             {
-                // Extract the option letter (A, B, C, D) from the Answer property
-                string optionLetter = Answer.Replace("Option ", "").Trim();
-
-                // Find the matching option text
-                string correctOption = Options.FirstOrDefault(opt => opt.StartsWith($"Option {optionLetter}:"));
-
-                if (correctOption != null)
+                try
                 {
-                    // Return just the text part after "Option X: "
-                    int colonIndex = correctOption.IndexOf(": ");
-                    if (colonIndex >= 0)
+                    // Extract the option letter (A, B, C, D) from the Answer property
+                    string optionLetter = Answer.Replace("Option ", "").Trim();
+
+                    // Find the matching option text
+                    string correctOption = Options.FirstOrDefault(opt => opt.StartsWith($"Option {optionLetter}:"));
+
+                    if (correctOption != null)
                     {
-                        return correctOption.Substring(colonIndex + 2).Trim();
+                        // Return just the text part after "Option X: "
+                        int colonIndex = correctOption.IndexOf(": ");
+                        if (colonIndex >= 0)
+                        {
+                            return correctOption.Substring(colonIndex + 2).Trim();
+                        }
                     }
+                    return Answer;
                 }
-                return Answer;
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error in GetCorrectAnswerText: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return Answer; // Fallback to the original Answer
+                }
             }
         }
 
@@ -70,7 +79,10 @@ namespace LMS
                     return result;
                 }
             }
-            catch { /* Continue to next format */ }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error parsing Options JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             try
             {
@@ -82,10 +94,14 @@ namespace LMS
                     return result;
                 }
             }
-            catch { /* Continue to next format */ }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error parsing Yes/No JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            throw new Exception("Invalid JSON structure. Could not parse as Option, YesNO, or ShortAnswer questions.");
+            return result; // Return an empty result if both parsing attempts fail
         }
+
         public class QuestionDetailsOption
         {
             public string QuestionText { get; set; }

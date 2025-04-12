@@ -252,8 +252,6 @@
     <Compile Include="AuthForm.Designer.cs">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DragHandler.cs" />
-    <Compile Include="Exam.cs" />
     <Compile Include="Html.cs" />
     <Compile Include="HtmlMultipleChoice.cs">
       <SubType>UserControl</SubType>

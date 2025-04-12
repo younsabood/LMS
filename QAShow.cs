@@ -12,6 +12,15 @@ namespace LMS
 {
     public partial class QAShow : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
+                return cp;
+            }
+        }
         List<QuestionsOBJ.QuestionDetailsOption> questionsShow;
         public QAShow(List<QuestionsOBJ.QuestionDetailsOption> questionsList)
         {
@@ -35,7 +44,7 @@ namespace LMS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Text = Exam.counter.ToString();
+            label1.Text = AI.counter.ToString();
         }
     }
 }
