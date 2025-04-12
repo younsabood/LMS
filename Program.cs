@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace LMS
         {
             try
             {
+                sql();
                 CheckTrialPeriod();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
@@ -29,7 +31,7 @@ namespace LMS
                         {
                             if (loginPage.ShowDialog() == DialogResult.OK)
                             {
-                                Application.Run(new LMSHome()); 
+                                Application.Run(new LMSHome());
                             }
                             else
                             {
@@ -85,6 +87,15 @@ namespace LMS
                 cmd.Parameters.AddWithValue("@StartDate", startDate);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public static void sql()
+        {
+            string path = Path.GetFullPath(Environment.CurrentDirectory);
+
+            string databaseName = "LMS.mdf";
+
+            Properties.Settings.Default.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + @"\" + databaseName + ";Integrated Security=True";
         }
     }
 }

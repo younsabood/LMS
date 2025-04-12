@@ -3,21 +3,25 @@ using Microsoft.Web.WebView2.Core;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace LMS
 {
     public partial class HtmlMultipleChoice : UserControl
     {
         private WebView2 webView;
+        private string userDataFolder;
         private string[] _options;
         private string _correctAnswer;
         private string _Explanation;
         private string _Difficulty;
         public decimal QAencrement;
+
         public HtmlMultipleChoice()
         {
             try
             {
+                userDataFolder = Path.Combine(Path.GetTempPath(), "WebView2", Guid.NewGuid().ToString());
                 InitializeWebView();
                 this.Height = 600;
                 this.Width = 600;
@@ -27,7 +31,6 @@ namespace LMS
                 MessageBox.Show($"Error initializing form: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public string QuestionText { get; set; } = "Question";
 
         public string CorrectAnswer
@@ -86,25 +89,16 @@ namespace LMS
             try
             {
                 webView = new WebView2 { Dock = DockStyle.Fill };
-                Controls.Add(webView);
-                await webView.EnsureCoreWebView2Async(null);
-
-                // Add message handler
+                var env = await CoreWebView2Environment.CreateAsync(null, userDataFolder);
+                await webView.EnsureCoreWebView2Async(env);
                 webView.CoreWebView2.WebMessageReceived += (sender, args) =>
                 {
-                    try
+                    if (args.TryGetWebMessageAsString() == "correct")
                     {
-                        if (args.TryGetWebMessageAsString() == "correct")
-                        {
-                            AI.counter += QAencrement;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error handling web message: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        AI.counter += QAencrement;
                     }
                 };
-
+                Controls.Add(webView);
                 RenderHtml();
             }
             catch (Exception ex)
@@ -112,7 +106,6 @@ namespace LMS
                 MessageBox.Show($"Error initializing WebView: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public string[] Options
         {
             get => _options;
