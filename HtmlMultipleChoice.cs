@@ -13,7 +13,7 @@ namespace LMS
         private string _correctAnswer;
         private string _Explanation;
         private string _Difficulty;
-        public double QAencrement;
+        public decimal QAencrement;
         public HtmlMultipleChoice()
         {
             try

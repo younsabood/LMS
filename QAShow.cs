@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Spire.Pdf.Exporting.XPS.Schema;
 
 namespace LMS
 {
@@ -29,7 +30,7 @@ namespace LMS
             questionsShow = questionsList;
             foreach (var q in questionsList)
             {
-                questions = new Questions(q.QuestionText, q.CorrectAnswer, q.Options, q.Explanation, q.Difficulty);
+                questions = new Questions(q.QuestionText, q.CorrectAnswer, q.Options, q.Explanation, q.Difficulty, questionsList.Count);
                 questions.Dock = DockStyle.Top;
                 exam.Controls.Add(questions);
             }
@@ -37,14 +38,19 @@ namespace LMS
 
         private void QAShow_Shown(object sender, EventArgs e)
         {
-            label2.Text = questionsShow.Count.ToString();
+            label2.Text += questionsShow.Count.ToString();
+            exam.AutoScrollPosition = new Point(0, 0);
             timer1.Start();
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Text = AI.counter.ToString();
+            int Degre = (int)AI.counter;
+            label1.Text = "Your Degre : " + Degre.ToString();
+            if (AI.counter == 100)
+            {
+                label1.Text = "Your Degre : " + AI.counter;
+            }
         }
     }
 }

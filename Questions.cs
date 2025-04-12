@@ -9,13 +9,14 @@ namespace LMS
     public partial class Questions : UserControl
     {
         private HtmlMultipleChoice htmlQuestion;
-        public double QAcount;
+        public decimal QAcount;
 
-        public Questions(string question, string correctAnswer, List<string> options, string Explanation, string Difficulty)
+        public Questions(string question, string correctAnswer, List<string> options, string Explanation, string Difficulty, int QACount)
         {
             InitializeComponent();
             this.Height = 700;
             this.Width = 700;
+            QAcount = QACount;
 
             try
             {
