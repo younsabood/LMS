@@ -123,29 +123,37 @@ namespace LMS
                             const selected = document.querySelector('input[name=""answer""]:checked');
                             const options = document.querySelectorAll('.option');
 
-                            // Reset styles for all options
+                            // Reset all styles first
+                            options.forEach(option => {{
+                                option.classList.remove('correct', 'incorrect');
+                            }});
+
+                            // Highlight the CORRECT answer
                             options.forEach(option => {{
                                 const value = option.querySelector('input').value.trim().toLowerCase();
-                                option.classList.remove('correct', 'incorrect', 'unselected');
-
                                 if (value === correctAnswer) {{
                                     option.classList.add('correct');
-                                }} else if (option.querySelector('input').checked) {{
-                                    option.classList.add('incorrect');
-                                }} else {{
-                                    option.classList.add('unselected');
                                 }}
                             }});
 
-                            // Notify C# if the correct answer is selected
-                            if (selected && selected.value.trim().toLowerCase() === correctAnswer) {{
+                            // Highlight the INCORRECT selection (if any)
+                            if (selected && selected.value.trim().toLowerCase() !== correctAnswer) {{
+                                const incorrectOption = selected.closest('.option');
+                                incorrectOption.classList.add('incorrect');
+                            }}
+
+                            // Disable inputs and notify
+                            document.querySelectorAll('input[name=""answer""]').forEach(input => {{
+                                input.disabled = true;
+                            }});
+                            if (selected?.value.trim().toLowerCase() === correctAnswer) {{
                                 chrome.webview.postMessage('correct');
                             }}
 
-                            // Flip the card after 10 seconds
+                            // Delay flip to show highlights
                             setTimeout(() => {{
                                 document.getElementById('flipCard').classList.add('flipped');
-                            }}, 10000); // 10-second delay
+                            }}, 2000); // 2-second delay to see both highlights
                         }}
 
                         function flipBack() {{
@@ -213,7 +221,7 @@ namespace LMS
                     .card-face,.option,.options,body{display:flex}
                     *{box-sizing:border-box;margin:0;padding:0}
                     body{font-family:'Segoe UI',sans-serif;background:#f0fafb;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:rtl;text-align:right}
-                    .flip-container{perspective:1000px;width:100%;max-width:600px;margin:auto}
+                    .flip-container{perspective:1000px;width:100%;max-width:900px;margin:auto}
                     .card{width:100%;height:auto;min-height:550px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
                     .card-back,.flip-container.flipped .card{transform:rotateY(-180deg)}
                     .card-face{background:#fff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,0.1);position:absolute;width:100%;height:100%;backface-visibility:hidden;padding:30px;flex-direction:column;justify-content:space-between}

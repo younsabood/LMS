@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -244,9 +245,29 @@ namespace LMS
                     ShowErrorMessage("Empty response received from AI service");
                     return;
                 }
-
+                richTextBox1.Text = response.ToString();
                 var formattedJson = JsonExtractor.ExtractAndFormatJson(response);
-                richTextBox1.Text = formattedJson;
+                var result = QuestionsOBJ.FromJson(formattedJson);
+                var questionDetailsList = new List<QuestionsOBJ.QuestionDetailsOption>();
+
+                if (result.Options != null)
+                {
+                    foreach (var question in result.Options)
+                    {
+                        questionDetailsList.Add(new QuestionsOBJ.QuestionDetailsOption
+                        {
+                            QuestionText = question.Question,
+                            CorrectAnswer = question.GetCorrectAnswerText(),
+                            Options = question.Options,
+                            Explanation = question.Explanation,
+                            Difficulty = question.Difficulty,
+                            Domain = question.Domain,
+                            Source = question.Source
+                        });
+                    }
+                }
+                QAShow qAShow = new QAShow(questionDetailsList);
+                qAShow.Show();
             }
             catch (Exception ex)
             {
@@ -409,8 +430,9 @@ namespace LMS
         private void panel2_DragDrop(object sender, DragEventArgs e) => SharedDragDropLogic(e);
         private void panel2_DragEnter(object sender, DragEventArgs e) => SharedDragEnterLogic(e);
         private void panel2_DoubleClick(object sender, EventArgs e) => SharedDoubleClickLogic();
+        #endregion
     }
-    #endregion
+
 
     public class GenerationParameters
     {

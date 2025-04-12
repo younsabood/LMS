@@ -103,3 +103,6 @@ F:\SVU\Project\LMS\LMS\LMS\bin\Debug\x64\pdfium.dll
 F:\SVU\Project\LMS\LMS\LMS\bin\Debug\PdfiumViewer.dll
 F:\SVU\Project\LMS\LMS\LMS\bin\Debug\PdfiumViewer.xml
 F:\SVU\Project\LMS\LMS\LMS\bin\Debug\nl\PdfiumViewer.resources.dll
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.QAShow.resources
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.HtmlMultipleChoice.resources
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.Questions.resources

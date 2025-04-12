@@ -86,5 +86,15 @@ namespace LMS
 
             throw new Exception("Invalid JSON structure. Could not parse as Option, YesNO, or ShortAnswer questions.");
         }
+        public class QuestionDetailsOption
+        {
+            public string QuestionText { get; set; }
+            public string CorrectAnswer { get; set; }
+            public List<string> Options { get; set; }
+            public string Explanation { get; set; }
+            public string Difficulty { get; set; }
+            public string Domain { get; set; }
+            public string Source { get; set; }
+        }
     }
 }
