@@ -68,6 +68,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
@@ -177,6 +179,8 @@
             // panel2
             // 
             this.panel2.AllowDrop = true;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.PicPDF2);
             this.panel2.Controls.Add(this.PicPDF1);
             this.panel2.Controls.Add(this.Reset);
@@ -206,18 +210,20 @@
             // 
             // PicPDF2
             // 
+            this.PicPDF2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PicPDF2.Location = new System.Drawing.Point(1088, 20);
             this.PicPDF2.Name = "PicPDF2";
-            this.PicPDF2.Size = new System.Drawing.Size(154, 157);
+            this.PicPDF2.Size = new System.Drawing.Size(154, 186);
             this.PicPDF2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicPDF2.TabIndex = 5;
             this.PicPDF2.TabStop = false;
             // 
             // PicPDF1
             // 
+            this.PicPDF1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PicPDF1.Location = new System.Drawing.Point(1259, 20);
             this.PicPDF1.Name = "PicPDF1";
-            this.PicPDF1.Size = new System.Drawing.Size(154, 157);
+            this.PicPDF1.Size = new System.Drawing.Size(154, 186);
             this.PicPDF1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicPDF1.TabIndex = 4;
             this.PicPDF1.TabStop = false;
@@ -550,25 +556,25 @@
             // 
             // expiration
             // 
-            this.expiration.AutoSize = true;
             this.expiration.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expiration.ForeColor = System.Drawing.Color.Black;
-            this.expiration.Location = new System.Drawing.Point(353, 119);
+            this.expiration.Location = new System.Drawing.Point(342, 102);
             this.expiration.Name = "expiration";
-            this.expiration.Size = new System.Drawing.Size(226, 23);
+            this.expiration.Size = new System.Drawing.Size(614, 54);
             this.expiration.TabIndex = 2;
             this.expiration.Text = "Expiration Free Trial In :  ";
+            this.expiration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // starting
             // 
-            this.starting.AutoSize = true;
             this.starting.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.starting.ForeColor = System.Drawing.Color.Black;
-            this.starting.Location = new System.Drawing.Point(353, 62);
+            this.starting.Location = new System.Drawing.Point(342, 48);
             this.starting.Name = "starting";
-            this.starting.Size = new System.Drawing.Size(203, 23);
+            this.starting.Size = new System.Drawing.Size(614, 54);
             this.starting.TabIndex = 1;
             this.starting.Text = "Starting Free Trial In :  ";
+            this.starting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel1
             // 
@@ -672,6 +678,32 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1481, 834);
             this.guna2Panel2.TabIndex = 2;
             // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(1259, 218);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(151, 21);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Source Document";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(1088, 218);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 21);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Example Exam";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LMSHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -702,7 +734,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.deffnum)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AccountPic)).EndInit();
@@ -754,5 +785,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label Gmail;
         private System.Windows.Forms.Label UserName;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

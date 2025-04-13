@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -84,8 +86,35 @@ namespace LMS
                 AccountPic.Load(user.PictureUrl);
                 Gmail.Text = user.Email;
                 UserName.Text = user.Name;
-                starting.Text += AI.DateTime.ToString("d MMM yyyy");
-                expiration.Text += AI.expirationDate.ToString("d MMM yyyy");
+                using (var sqlHelper = new SqlHelper(Properties.Settings.Default.ConnectionString))
+                {
+                    string query = @"
+                    SELECT TOP 1 StartDate, TrialExpired 
+                    FROM [auth].[TrialInfo] 
+                    ORDER BY Id DESC";
+
+                    DataTable dt = await sqlHelper.ExecuteQueryAsync(query);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow row = dt.Rows[0];
+                        starting.Text += Convert.ToDateTime(row["StartDate"]).ToString("yyyy-MM-dd");
+                        expiration.Text += Convert.ToBoolean(row["TrialExpired"]) ? "Expired" : "Active";
+                        if(expiration.Text == "Expired")
+                        {
+                            expiration.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            expiration.ForeColor = Color.Green;
+                        }
+                    }
+                    else
+                    {
+                        starting.Text = "No data found";
+                        expiration.Text = "No data found";
+                    }
+                }
             }
             catch (Exception ex)
             {

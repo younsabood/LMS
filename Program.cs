@@ -56,12 +56,9 @@ namespace LMS
             {
                 SaveTrialStartDate(currentDate);
                 storedStartDate = currentDate;
-                AI.DateTime = storedStartDate.Value;
             }
 
             DateTime expirationDate = storedStartDate.Value.AddDays(30);
-            AI.expirationDate = expirationDate;
-
             if (currentDate > expirationDate)
             {
                 MessageBox.Show("Your 30-day trial has expired. Please purchase a license.", "Trial Expired", MessageBoxButtons.OK, MessageBoxIcon.Stop);
