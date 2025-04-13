@@ -54,7 +54,7 @@
             this.exam.AutoScroll = true;
             this.exam.AutoScrollMargin = new System.Drawing.Size(5, 0);
             this.exam.AutoScrollMinSize = new System.Drawing.Size(5, 0);
-            this.exam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.exam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.exam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.exam.Location = new System.Drawing.Point(0, 0);
             this.exam.Name = "exam";
@@ -64,7 +64,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -93,6 +93,8 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // QAShow
@@ -106,7 +108,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "QAShow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QAShow";
+            this.Text = "New Exam";
             this.Shown += new System.EventHandler(this.QAShow_Shown);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

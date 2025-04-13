@@ -15,11 +15,12 @@ namespace LMS
     public partial class QAShow : Form
     {
         List<QuestionsOBJ.QuestionDetailsOption> questionsoptionShow;
+        DateTime dateTime = DateTime.MinValue;
         List<QuestionsOBJ.YesNO> questionsYesNOShow;
         public QAShow(List<QuestionsOBJ.QuestionDetailsOption> questionsListoption = null, List<QuestionsOBJ.YesNO> questionsListYesNO = null)
         {
             InitializeComponent();
-            if(questionsListoption != null)
+            if (questionsListoption != null)
             {
                 QuestionsOption questions;
                 questionsoptionShow = questionsListoption;
@@ -29,6 +30,7 @@ namespace LMS
                     questions.Dock = DockStyle.Top;
                     exam.Controls.Add(questions);
                 }
+                dateTime = DateTime.Now.AddMinutes(questionsoptionShow.Count * 2.5);
             }
             else if(questionsListYesNO != null)
             {
@@ -40,6 +42,7 @@ namespace LMS
                     questions.Dock = DockStyle.Top;
                     exam.Controls.Add(questions);
                 }
+                dateTime = DateTime.Now.AddMinutes(questionsYesNOShow.Count * 1.5);
             }
             else
             {
@@ -68,6 +71,18 @@ namespace LMS
             if (AI.counter == 100)
             {
                 label1.Text = "Your Degre : " + AI.counter;
+            }
+
+            TimeSpan remainingTime = dateTime - DateTime.Now;
+            this.Text = "New Exam Time Left : " + remainingTime.ToString(@"hh\:mm\:ss");
+
+            if (dateTime <= DateTime.Now)
+            {
+                timer1.Stop();
+                this.Text = "New Exam Time Left : 00:00:00";
+                MessageBox.Show("Time's up! Your Degre : " + AI.counter);
+                this.Close();
+                return;
             }
         }
         protected override CreateParams CreateParams

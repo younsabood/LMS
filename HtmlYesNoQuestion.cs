@@ -188,6 +188,9 @@ namespace LMS
 
                         function flipCard() {{
                             const selected = document.querySelector('input[name=""answer""]:checked');
+                            if (!selected) {{
+                                return;
+                            }}
                             const options = document.querySelectorAll('.option');
 
                             // Reset all styles first
@@ -220,7 +223,7 @@ namespace LMS
                             // Delay flip to show highlights
                             setTimeout(() => {{
                                 document.getElementById('flipCard').classList.add('flipped');
-                            }}, 2000); // 2-second delay to see both highlights
+                            }}, 1000); // 2-second delay to see both highlights
                         }}
 
                         function flipBack() {{
@@ -293,7 +296,7 @@ namespace LMS
                     position: absolute;
                     bottom: 20px;
                     left: 20px;
-                    background: #6a5dfc;
+                    background: #bb9b55;
                     color: white;
                     padding: 6px 12px;
                     border-radius: 4px;
@@ -305,7 +308,7 @@ namespace LMS
                 ? baseStyles + @"
                     .card-face,.option,.options,body{display:flex}
                     *{box-sizing:border-box;margin:0;padding:0}
-                    body{font-family:'Segoe UI',sans-serif;background:#f0fafb;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:rtl;text-align:right}
+                    body{font-family:'Segoe UI',sans-serif;background:#fcfaf5;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:rtl;text-align:right}
                     .flip-container{perspective:1000px;width:100%;max-width:900px;margin:auto}
                     .card{width:100%;height:auto;min-height:550px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
                     .card-back,.flip-container.flipped .card{transform:rotateY(-180deg)}
@@ -314,23 +317,23 @@ namespace LMS
                     .question{font-size:1.4rem;font-weight:500;text-align:center;margin-bottom:20px}
                     .back-btn,.flip-btn,.reasoning{font-size:1rem;text-align:center;margin-top:20px}
                     .options{flex-direction:column;gap:15px}
-                    .option{justify-content:space-between;align-items:center;padding:15px 20px;border:2px solid transparent;border-radius:10px;background:#eef3ff;cursor:pointer;transition:border-color .3s,background-color .3s;flex-direction:row-reverse}
-                    .option:focus-within,.option:hover{border-color:#6a5dfc;background:#e8ecff}
+                    .option{justify-content:space-between;align-items:center;padding:15px 20px;border:2px solid transparent;border-radius:10px;background:#fcfaf5;cursor:pointer;transition:border-color .3s,background-color .3s;flex-direction:row-reverse}
+                    .option:focus-within,.option:hover{border-color:#dac67f;background:#f9f5eb}
                     input[type=radio]{display:none}
                     .custom-radio{margin-left:10px;width:20px;height:20px;border:2px solid #aaa;border-radius:50%;display:flex;align-items:center;justify-content:center}
-                    input[type=radio]:checked+.custom-radio{border-color:#6a5dfc}
-                    input[type=radio]:checked+.custom-radio::after{content:'';width:10px;height:10px;background:#6a5dfc;border-radius:50%}
+                    input[type=radio]:checked+.custom-radio{border-color:#bb9b55}
+                    input[type=radio]:checked+.custom-radio::after{content:'';width:10px;height:10px;background:#bb9b55;border-radius:50%}
                     .back-btn,.flip-btn{display:inline-block;padding:12px 24px;font-weight:600;border:none;border-radius:10px;cursor:pointer;transition:background .3s,box-shadow .3s}
-                    .flip-btn{background:#6a5dfc;color:#fff;margin-left:10px}
-                    .flip-btn:focus,.flip-btn:hover{background:#5946e2;box-shadow:0 4px 10px rgba(0,0,0,0.15)}
+                    .flip-btn{background:#bb9b55;color:#fff;margin-left:10px}
+                    .flip-btn:focus,.flip-btn:hover{background:#a16f1b;box-shadow:0 4px 10px rgba(0,0,0,0.15)}
                     .back-btn{background:#e0e0e0;color:#333;margin-right:10px}
                     .back-btn:focus,.back-btn:hover{background:#ccc;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
                     @media (max-width:768px){.card{min-height:500px}.question{font-size:1.2rem}.back-btn,.flip-btn{width:100%;padding:12px;margin:5px 0}.option{padding:10px 15px;flex-direction:row-reverse}.custom-radio{margin-left:0;margin-right:10px}}"
                 : baseStyles + @"
                     .card-face,.option,.options,body{display:flex}
                     *{box-sizing:border-box;margin:0;padding:0}
-                    body{font-family:'Segoe UI',sans-serif;background:#f0fafb;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:ltr}
-                    .flip-container{perspective:1000px;width:100%;max-width:600px;margin:auto}
+                    body{font-family:'Segoe UI',sans-serif;background:#fcfaf5;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:ltr}
+                    .flip-container{perspective:1000px;width:100%;max-width:900px;margin:auto}
                     .card{width:100%;height:auto;min-height:550px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
                     .card-back,.flip-container.flipped .card{transform:rotateY(180deg)}
                     .card-face{background:#fff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,0.1);position:absolute;width:100%;height:100%;backface-visibility:hidden;padding:30px;flex-direction:column;justify-content:space-between}
@@ -338,15 +341,15 @@ namespace LMS
                     .question{font-size:1.4rem;font-weight:500;text-align:center;margin-bottom:20px}
                     .back-btn,.flip-btn,.reasoning{font-size:1rem;text-align:center;margin-top:20px}
                     .options{flex-direction:column;gap:15px}
-                    .option{justify-content:space-between;align-items:center;padding:15px 20px;border:2px solid transparent;border-radius:10px;background:#eef3ff;cursor:pointer;transition:border-color .3s,background-color .3s}
-                    .option:focus-within,.option:hover{border-color:#6a5dfc;background:#e8ecff}
+                    .option{justify-content:space-between;align-items:center;padding:15px 20px;border:2px solid transparent;border-radius:10px;background:#fcfaf5;cursor:pointer;transition:border-color .3s,background-color .3s}
+                    .option:focus-within,.option:hover{border-color:#dac67f;background:#f9f5eb}
                     input[type=radio]{display:none}
                     .custom-radio{width:20px;height:20px;border:2px solid #aaa;border-radius:50%;display:flex;align-items:center;justify-content:center}
-                    input[type=radio]:checked+.custom-radio{border-color:#6a5dfc}
-                    input[type=radio]:checked+.custom-radio::after{content:'';width:10px;height:10px;background:#6a5dfc;border-radius:50%}
+                    input[type=radio]:checked+.custom-radio{border-color:#bb9b55}
+                    input[type=radio]:checked+.custom-radio::after{content:'';width:10px;height:10px;background:#bb9b55;border-radius:50%}
                     .back-btn,.flip-btn{display:inline-block;padding:12px 24px;font-weight:600;border:none;border-radius:10px;cursor:pointer;transition:background .3s,box-shadow .3s}
-                    .flip-btn{background:#6a5dfc;color:#fff}
-                    .flip-btn:focus,.flip-btn:hover{background:#5946e2;box-shadow:0 4px 10px rgba(0,0,0,0.15)}
+                    .flip-btn{background:#bb9b55;color:#fff}
+                    .flip-btn:focus,.flip-btn:hover{background:#a16f1b;box-shadow:0 4px 10px rgba(0,0,0,0.15)}
                     .back-btn{background:#e0e0e0;color:#333}
                     .back-btn:focus,.back-btn:hover{background:#ccc;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
                     @media (max-width:768px){.card{min-height:500px}.question{font-size:1.2rem}.back-btn,.flip-btn{width:100%;padding:12px}.option{padding:10px 15px}}";

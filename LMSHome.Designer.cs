@@ -58,16 +58,16 @@
             this.Path_1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.expiration = new System.Windows.Forms.Label();
+            this.starting = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.Gmail = new System.Windows.Forms.Label();
+            this.UserName = new System.Windows.Forms.Label();
             this.AccountPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.starting = new System.Windows.Forms.Label();
-            this.expiration = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.UserName = new System.Windows.Forms.Label();
-            this.Gmail = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
@@ -80,12 +80,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.deffnum)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountPic)).BeginInit();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -243,7 +243,7 @@
             this.eupdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.eupdate.ForeColor = System.Drawing.Color.Black;
-            this.eupdate.Location = new System.Drawing.Point(228, 318);
+            this.eupdate.Location = new System.Drawing.Point(228, 304);
             this.eupdate.Name = "eupdate";
             this.eupdate.Size = new System.Drawing.Size(658, 33);
             this.eupdate.TabIndex = 16;
@@ -253,7 +253,7 @@
             this.supdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.supdate.ForeColor = System.Drawing.Color.Black;
-            this.supdate.Location = new System.Drawing.Point(228, 272);
+            this.supdate.Location = new System.Drawing.Point(228, 260);
             this.supdate.Name = "supdate";
             this.supdate.Size = new System.Drawing.Size(658, 33);
             this.supdate.TabIndex = 15;
@@ -548,6 +548,88 @@
             this.guna2GroupBox1.TabIndex = 0;
             this.guna2GroupBox1.Text = "Setting";
             // 
+            // expiration
+            // 
+            this.expiration.AutoSize = true;
+            this.expiration.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expiration.ForeColor = System.Drawing.Color.Black;
+            this.expiration.Location = new System.Drawing.Point(353, 119);
+            this.expiration.Name = "expiration";
+            this.expiration.Size = new System.Drawing.Size(226, 23);
+            this.expiration.TabIndex = 2;
+            this.expiration.Text = "Expiration Free Trial In :  ";
+            // 
+            // starting
+            // 
+            this.starting.AutoSize = true;
+            this.starting.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.starting.ForeColor = System.Drawing.Color.Black;
+            this.starting.Location = new System.Drawing.Point(353, 62);
+            this.starting.Name = "starting";
+            this.starting.Size = new System.Drawing.Size(203, 23);
+            this.starting.TabIndex = 1;
+            this.starting.Text = "Starting Free Trial In :  ";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.71096F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.28905F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.AccountPic, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 45);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(333, 114);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.Gmail, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.UserName, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(115, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(218, 114);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // Gmail
+            // 
+            this.Gmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Gmail.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gmail.ForeColor = System.Drawing.Color.Black;
+            this.Gmail.Location = new System.Drawing.Point(20, 57);
+            this.Gmail.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.Gmail.Name = "Gmail";
+            this.Gmail.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.Gmail.Size = new System.Drawing.Size(195, 57);
+            this.Gmail.TabIndex = 1;
+            this.Gmail.Text = "label2";
+            this.Gmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // UserName
+            // 
+            this.UserName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.ForeColor = System.Drawing.Color.Black;
+            this.UserName.Location = new System.Drawing.Point(20, 0);
+            this.UserName.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.UserName.Name = "UserName";
+            this.UserName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.UserName.Size = new System.Drawing.Size(195, 57);
+            this.UserName.TabIndex = 0;
+            this.UserName.Text = "label1";
+            this.UserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // AccountPic
             // 
             this.AccountPic.BackColor = System.Drawing.Color.Transparent;
@@ -570,15 +652,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1481, 65);
             this.guna2Panel1.TabIndex = 1;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.TabControl);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 65);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1481, 834);
-            this.guna2Panel2.TabIndex = 2;
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = global::LMS.Properties.Resources.svgviewer_output;
@@ -590,87 +663,14 @@
             this.guna2PictureBox1.TabIndex = 5;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // starting
+            // guna2Panel2
             // 
-            this.starting.AutoSize = true;
-            this.starting.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.starting.ForeColor = System.Drawing.Color.Black;
-            this.starting.Location = new System.Drawing.Point(353, 62);
-            this.starting.Name = "starting";
-            this.starting.Size = new System.Drawing.Size(203, 23);
-            this.starting.TabIndex = 1;
-            this.starting.Text = "Starting Free Trial In :  ";
-            // 
-            // expiration
-            // 
-            this.expiration.AutoSize = true;
-            this.expiration.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expiration.ForeColor = System.Drawing.Color.Black;
-            this.expiration.Location = new System.Drawing.Point(353, 119);
-            this.expiration.Name = "expiration";
-            this.expiration.Size = new System.Drawing.Size(226, 23);
-            this.expiration.TabIndex = 2;
-            this.expiration.Text = "Expiration Free Trial In :  ";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.Gmail, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.UserName, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(115, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(218, 114);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // UserName
-            // 
-            this.UserName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.ForeColor = System.Drawing.Color.Black;
-            this.UserName.Location = new System.Drawing.Point(20, 0);
-            this.UserName.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
-            this.UserName.Name = "UserName";
-            this.UserName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.UserName.Size = new System.Drawing.Size(195, 57);
-            this.UserName.TabIndex = 0;
-            this.UserName.Text = "label1";
-            this.UserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Gmail
-            // 
-            this.Gmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Gmail.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gmail.ForeColor = System.Drawing.Color.Black;
-            this.Gmail.Location = new System.Drawing.Point(20, 57);
-            this.Gmail.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
-            this.Gmail.Name = "Gmail";
-            this.Gmail.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.Gmail.Size = new System.Drawing.Size(195, 57);
-            this.Gmail.TabIndex = 1;
-            this.Gmail.Text = "label2";
-            this.Gmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.71096F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.28905F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.AccountPic, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 45);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(333, 114);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.guna2Panel2.Controls.Add(this.TabControl);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 65);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(1481, 834);
+            this.guna2Panel2.TabIndex = 2;
             // 
             // LMSHome
             // 
@@ -703,12 +703,12 @@
             this.tabPage2.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AccountPic)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

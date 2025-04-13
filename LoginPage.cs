@@ -50,12 +50,14 @@ namespace LMS
                 GeminiModel GeminiModel = CreateGeminiModel();
                 string response = (string)await GeminiModel.GenerateContentAsync("Hello, can you hear me? Just reply with Yes, I’m working!");
                 google.Text = "Waiting For Response...";
+                google.Enabled = false;
                 if (!String.IsNullOrEmpty(response))
                 {
                     await webView.EnsureCoreWebView2Async(null);
                     webView.NavigateToString(HtmlLogin.page3);
                     await Task.Delay(10000);
                     google.Text = "Sign up with Google";
+                    google.Enabled = true;
                     if (!String.IsNullOrEmpty(api.Text))
                     {
                         try

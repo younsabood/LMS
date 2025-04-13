@@ -13,6 +13,7 @@ namespace LMS
     {
         private readonly SqlHelper _sqlHelper;
         private const string PDF_FILTER = "Supported Files (*.pdf;*.docx;*.pptx)|*.pdf;*.docx;*.pptx";
+        private static bool isFormOpen = false;
 
         protected override CreateParams CreateParams
         {
@@ -143,9 +144,6 @@ namespace LMS
                 }
                 var response = await GenerateContent(sourceFile, exampleFile);
                 ProcessResponse(response);
-                Start.Text = "Start Uploade";
-                Start.Enabled = true;
-                Reset.Enabled = true;
                 ResetForm();
             }
             catch (Exception ex)
@@ -261,6 +259,7 @@ namespace LMS
 
                 if (result.Options != null)
                 {
+                    AI.counter = 0;
                     var questionDetailsList = new List<QuestionsOBJ.QuestionDetailsOption>();
 
                     foreach (var question in result.Options)
@@ -276,11 +275,27 @@ namespace LMS
                             Source = question.Source
                         });
                     }
+                    if (isFormOpen)
+                    {
+                        MessageBox.Show("A Exam is already open. Please close it before opening a new one.");
+                        return;
+                    }
+                    isFormOpen = true;
+                    Start.Text = "Exam is already open";
                     QAShow qAShow = new QAShow(questionDetailsList, null);
+                    qAShow.FormClosed += (sender, e) =>
+                    {
+                        isFormOpen = false;
+                        Start.Text = "Start Uploade";
+                        Start.Enabled = true;
+                        Reset.Enabled = true;
+                    };
+
                     qAShow.Show();
                 }
                 else if (result.YesNos != null)
                 {
+                    AI.counter = 0;
                     var questionDetailsList = new List<QuestionsOBJ.YesNO>();
 
                     foreach (var question in result.YesNos)
@@ -295,7 +310,22 @@ namespace LMS
                             Domain = question.Domain
                         });
                     }
+                    if (isFormOpen)
+                    {
+                        MessageBox.Show("A Exam is already open. Please close it before opening a new one.");
+                        return;
+                    }
+                    isFormOpen = true;
+                    Start.Text = "Exam is already open";
                     QAShow qAShow = new QAShow(null, questionDetailsList);
+                    qAShow.FormClosed += (sender, e) =>
+                    {
+                        isFormOpen = false;
+                        Start.Text = "Start Uploade";
+                        Start.Enabled = true;
+                        Reset.Enabled = true;
+                    };
+
                     qAShow.Show();
                 }
 
