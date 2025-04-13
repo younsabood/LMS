@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using GenerativeAI.Types;
 
 namespace LMS
 {
@@ -16,6 +17,7 @@ namespace LMS
         private string _Explanation;
         private string _Difficulty;
         public decimal QAencrement;
+        private string _Source;
 
         public HtmlMultipleChoice()
         {
@@ -66,7 +68,22 @@ namespace LMS
                 }
             }
         }
-
+        public string Source
+        {
+            get => _Source;
+            set
+            {
+                try
+                {
+                    _Source = value;
+                    RenderHtml();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error setting Source: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         public string Difficulty
         {
             get => _Difficulty;
@@ -174,6 +191,8 @@ namespace LMS
                             <div class='card-face card-back'>
                                 <div class='correct-answer'>{CorrectAnswer}</div>
                                 <div class='explanation-text'>{Explanation}</div>
+                                <hr style=""height:2px;border-width:0;color:gray;background-color:gray"">
+                                <div class='explanation-text'>{Source}</div>
                                 <div class='difficulty-box'>{Difficulty}</div>
                                 <button class='flip-btn back-btn' onclick='flipBack()'>Back to Question</button>
                             </div>

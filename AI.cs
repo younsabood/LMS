@@ -13,6 +13,8 @@ namespace LMS
         public static decimal counter;
         public static readonly GeminiModel GeminiModel = CreateGeminiModel();
         public static string LanguageAI;
+        public static DateTime DateTime;
+        public static DateTime expirationDate;
         private static GeminiModel CreateGeminiModel()
         {
             var modelParams = new ModelParams { Model = GoogleAIModels.Gemini2FlashLatest };

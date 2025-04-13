@@ -7,38 +7,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GenerativeAI.Types;
 using Spire.Pdf.Exporting.XPS.Schema;
 
 namespace LMS
 {
     public partial class QAShow : Form
     {
-        protected override CreateParams CreateParams
+        List<QuestionsOBJ.QuestionDetailsOption> questionsoptionShow;
+        List<QuestionsOBJ.YesNO> questionsYesNOShow;
+        public QAShow(List<QuestionsOBJ.QuestionDetailsOption> questionsListoption = null, List<QuestionsOBJ.YesNO> questionsListYesNO = null)
         {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
-                return cp;
-            }
-        }
-        List<QuestionsOBJ.QuestionDetailsOption> questionsShow;
-        public QAShow(List<QuestionsOBJ.QuestionDetailsOption> questionsList)
-        {
-            Questions questions;
             InitializeComponent();
-            questionsShow = questionsList;
-            foreach (var q in questionsList)
+            if(questionsListoption != null)
             {
-                questions = new Questions(q.QuestionText, q.CorrectAnswer, q.Options, q.Explanation, q.Difficulty, questionsList.Count);
-                questions.Dock = DockStyle.Top;
-                exam.Controls.Add(questions);
+                QuestionsOption questions;
+                questionsoptionShow = questionsListoption;
+                foreach (var q in questionsListoption)
+                {
+                    questions = new QuestionsOption(q.QuestionText, q.CorrectAnswer, q.Options, q.Explanation, q.Difficulty, questionsListoption.Count, q.Source);
+                    questions.Dock = DockStyle.Top;
+                    exam.Controls.Add(questions);
+                }
+            }
+            else if(questionsListYesNO != null)
+            {
+                QuestionsYesNO questions;
+                questionsYesNOShow = questionsListYesNO;
+                foreach (var q in questionsListYesNO)
+                {
+                    questions = new QuestionsYesNO(q.Question, q.Answer, q.Explanation, q.Difficulty, q.Source, questionsListYesNO.Count);
+                    questions.Dock = DockStyle.Top;
+                    exam.Controls.Add(questions);
+                }
+            }
+            else
+            {
+                return;
             }
         }
 
         private void QAShow_Shown(object sender, EventArgs e)
         {
-            label2.Text += questionsShow.Count.ToString();
+            if (questionsoptionShow != null)
+            {
+                label2.Text += questionsoptionShow.Count.ToString();
+            }
+            else
+            {
+                label2.Text += questionsYesNOShow.Count.ToString();
+            }
             exam.AutoScrollPosition = new Point(0, 0);
             timer1.Start();
         }
@@ -50,6 +68,15 @@ namespace LMS
             if (AI.counter == 100)
             {
                 label1.Text = "Your Degre : " + AI.counter;
+            }
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
+                return cp;
             }
         }
     }

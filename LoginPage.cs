@@ -5,20 +5,27 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GenerativeAI.Core;
+using GenerativeAI;
 using Guna.UI2.WinForms;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace LMS
 {
     public partial class LoginPage : Form
     {
         private static readonly SqlHelper SqlHelper = new SqlHelper(Properties.Settings.Default.ConnectionString);
-
         private const string ClientId = "965955892432-bjho48goiifr5vnq1v3c6efgfgu00str.apps.googleusercontent.com";
         private const string ClientSecret = "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";
         private const string RedirectUri = "http://localhost:8080/";
         private UserInfo _userInfo;
         private TokenResponse _tokenResponse;
+        private GeminiModel CreateGeminiModel()
+        {
+            var modelParams = new ModelParams { Model = GoogleAIModels.Gemini2FlashLatest };
+            return new GeminiModel(api.Text, modelParams);
+        }
 
         protected override CreateParams CreateParams
         {
@@ -33,32 +40,52 @@ namespace LMS
         public LoginPage()
         {
             InitializeComponent();
+            
         }
 
         private async void google_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(api.Text))
+            try
             {
-                try
+                GeminiModel GeminiModel = CreateGeminiModel();
+                string response = (string)await GeminiModel.GenerateContentAsync("Hello, can you hear me? Just reply with Yes, I’m working!");
+                google.Text = "Waiting For Response...";
+                if (!String.IsNullOrEmpty(response))
                 {
-                    var authCode = await ShowGoogleAuthForm();
-                    if (string.IsNullOrEmpty(authCode)) return;
+                    await webView.EnsureCoreWebView2Async(null);
+                    webView.NavigateToString(HtmlLogin.page3);
+                    await Task.Delay(10000);
+                    google.Text = "Sign up with Google";
+                    if (!String.IsNullOrEmpty(api.Text))
+                    {
+                        try
+                        {
+                            var authCode = await ShowGoogleAuthForm();
+                            if (string.IsNullOrEmpty(authCode)) return;
 
-                    await AuthenticateWithGoogleAsync(authCode);
-                    await RegisterUserAsync();
+                            await AuthenticateWithGoogleAsync(authCode);
+                            await RegisterUserAsync();
 
-                    // Successfully logged in
-                    this.DialogResult = DialogResult.OK;
-                }
-                catch (Exception ex)
-                {
-                    // Handle errors without rethrowing
-                    MessageBox.Show($"Error: {ex.Message}", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Successfully logged in
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle errors without rethrowing
+                            MessageBox.Show($"Error: {ex.Message}", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error: Input Your API KEY", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show($"Error: Input Your API KEY", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                await webView.EnsureCoreWebView2Async(null);
+
+                webView.NavigateToString(HtmlLogin.page2);
             }
         }
 
@@ -258,6 +285,13 @@ namespace LMS
             {
                 MessageBox.Show($"Error opening API key page: {ex.Message}", "API Key Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void LoginPage_Load(object sender, EventArgs e)
+        {
+            await webView.EnsureCoreWebView2Async(null);
+
+            webView.NavigateToString(HtmlLogin.page1);
         }
     }
 }

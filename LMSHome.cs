@@ -83,6 +83,8 @@ namespace LMS
                 AccountPic.Load(user.PictureUrl);
                 Gmail.Text = user.Email;
                 UserName.Text = user.Name;
+                starting.Text += AI.DateTime.ToString("d MMM yyyy");
+                expiration.Text += AI.expirationDate.ToString("d MMM yyyy");
             }
             catch (Exception ex)
             {
@@ -129,15 +131,21 @@ namespace LMS
             try
             {
                 if (!ValidateInputs()) return;
+                Start.Text = "Waiting For Response...";
+                Start.Enabled = false;
+                Reset.Enabled = false;
                 var sourceFile = await UploadFileAsync(Path_1.Text, supdate);
-                supdate.Text = $"Name : {sourceFile.DisplayName} ID ( {sourceFile.Name} )";
+                supdate.Text = $"{sourceFile.DisplayName} {sourceFile.Name}";
                 var exampleFile = await GetExampleFileAsync();
                 if (exampleFile != null)
                 {
-                    eupdate.Text = $"Name : {exampleFile.DisplayName} ID ( {exampleFile.Name} )";
+                    eupdate.Text = $"{exampleFile.DisplayName} {exampleFile.Name}";
                 }
                 var response = await GenerateContent(sourceFile, exampleFile);
                 ProcessResponse(response);
+                Start.Text = "Start Uploade";
+                Start.Enabled = true;
+                Reset.Enabled = true;
                 ResetForm();
             }
             catch (Exception ex)
@@ -250,10 +258,11 @@ namespace LMS
 
                 var formattedJson = JsonExtractor.ExtractAndFormatJson(response);
                 var result = QuestionsOBJ.FromJson(formattedJson);
-                var questionDetailsList = new List<QuestionsOBJ.QuestionDetailsOption>();
 
                 if (result.Options != null)
                 {
+                    var questionDetailsList = new List<QuestionsOBJ.QuestionDetailsOption>();
+
                     foreach (var question in result.Options)
                     {
                         questionDetailsList.Add(new QuestionsOBJ.QuestionDetailsOption
@@ -267,10 +276,30 @@ namespace LMS
                             Source = question.Source
                         });
                     }
+                    QAShow qAShow = new QAShow(questionDetailsList, null);
+                    qAShow.Show();
+                }
+                else if (result.YesNos != null)
+                {
+                    var questionDetailsList = new List<QuestionsOBJ.YesNO>();
+
+                    foreach (var question in result.YesNos)
+                    {
+                        questionDetailsList.Add(new QuestionsOBJ.YesNO
+                        {
+                            Question = question.Question,
+                            Answer = question.Answer,
+                            Source = question.Source,
+                            Explanation = question.Explanation,
+                            Difficulty = question.Difficulty,
+                            Domain = question.Domain
+                        });
+                    }
+                    QAShow qAShow = new QAShow(null, questionDetailsList);
+                    qAShow.Show();
                 }
 
-                QAShow qAShow = new QAShow(questionDetailsList);
-                qAShow.Show();
+
             }
             catch (Exception ex)
             {

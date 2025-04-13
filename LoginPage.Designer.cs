@@ -41,11 +41,14 @@
             this.exit = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.logparent.SuspendLayout();
             this.log.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,6 +80,7 @@
             // 
             // log
             // 
+            this.log.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.log.Controls.Add(this.getapi);
             this.log.Controls.Add(this.api);
             this.log.Controls.Add(this.label4);
@@ -114,7 +118,7 @@
             this.api.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.api.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.api.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.api.Location = new System.Drawing.Point(67, 254);
+            this.api.Location = new System.Drawing.Point(67, 296);
             this.api.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.api.Name = "api";
             this.api.PasswordChar = '*';
@@ -127,7 +131,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 217);
+            this.label4.Location = new System.Drawing.Point(53, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 23);
             this.label4.TabIndex = 23;
@@ -148,7 +152,7 @@
             this.google.ForeColor = System.Drawing.Color.Black;
             this.google.Image = global::LMS.Properties.Resources.icons8_google_logo_100;
             this.google.ImageSize = new System.Drawing.Size(40, 40);
-            this.google.Location = new System.Drawing.Point(67, 332);
+            this.google.Location = new System.Drawing.Point(67, 374);
             this.google.Name = "google";
             this.google.Size = new System.Drawing.Size(317, 51);
             this.google.TabIndex = 13;
@@ -157,9 +161,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::LMS.Properties.Resources.steptodown_com193920__1_;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.exit);
+            this.panel1.Controls.Add(this.webView);
             this.panel1.Controls.Add(this.guna2PictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -177,7 +182,7 @@
             this.exit.ImageOffset = new System.Drawing.Point(0, 0);
             this.exit.ImageRotate = 0F;
             this.exit.ImageSize = new System.Drawing.Size(50, 50);
-            this.exit.Location = new System.Drawing.Point(3, 537);
+            this.exit.Location = new System.Drawing.Point(9, 531);
             this.exit.Name = "exit";
             this.exit.PressedState.ImageSize = new System.Drawing.Size(50, 50);
             this.exit.Size = new System.Drawing.Size(64, 54);
@@ -188,18 +193,39 @@
             // 
             this.guna2PictureBox1.Image = global::LMS.Properties.Resources.svgviewer_output;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(9, 9);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(244, 64);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 4;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // webView
+            // 
+            this.webView.AllowExternalDrop = true;
+            this.webView.CreationProperties = null;
+            this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView.Location = new System.Drawing.Point(3, 72);
+            this.webView.Name = "webView";
+            this.webView.Size = new System.Drawing.Size(834, 519);
+            this.webView.TabIndex = 5;
+            this.webView.ZoomFactor = 1D;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(237, 544);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(371, 36);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Your PDFs Smarter With AI";
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1300, 600);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,12 +235,15 @@
             this.Name = "LoginPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginPage_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.logparent.ResumeLayout(false);
             this.log.ResumeLayout(false);
             this.log.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,6 +260,8 @@
         private Guna.UI2.WinForms.Guna2TextBox api;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label getapi;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView;
+        private System.Windows.Forms.Label label1;
     }
 }
 

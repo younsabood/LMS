@@ -54,7 +54,6 @@ namespace LMS
             public string Answer { get; set; } // "Yes" or "No"
             public string Source { get; set; }
             public string Explanation { get; set; }
-            public string Reasoning { get; set; }
             public string Difficulty { get; set; }
             public string Domain { get; set; }
         }

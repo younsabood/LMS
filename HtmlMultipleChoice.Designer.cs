@@ -38,7 +38,6 @@
             this.Name = "HtmlMultipleChoice";
             this.Size = new System.Drawing.Size(1347, 701);
             this.ResumeLayout(false);
-
         }
 
         #endregion

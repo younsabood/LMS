@@ -252,12 +252,19 @@
     <Compile Include="AuthForm.Designer.cs">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Html.cs" />
+    <Compile Include="HtmlLogin.cs" />
+    <Compile Include="HtmlMAIL.cs" />
     <Compile Include="HtmlMultipleChoice.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="HtmlMultipleChoice.Designer.cs">
       <DependentUpon>HtmlMultipleChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlYesNoQuestion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlYesNoQuestion.Designer.cs">
+      <DependentUpon>HtmlYesNoQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="JsonExtractor.cs" />
     <Compile Include="LMSHome.cs">
@@ -282,13 +289,19 @@
     <Compile Include="QAShow.Designer.cs">
       <DependentUpon>QAShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Questions.cs">
+    <Compile Include="QuestionsOption.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Questions.Designer.cs">
-      <DependentUpon>Questions.cs</DependentUpon>
+    <Compile Include="QuestionsOption.Designer.cs">
+      <DependentUpon>QuestionsOption.cs</DependentUpon>
     </Compile>
     <Compile Include="QuestionsOBJ.cs" />
+    <Compile Include="QuestionsYesNO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuestionsYesNO.Designer.cs">
+      <DependentUpon>QuestionsYesNO.cs</DependentUpon>
+    </Compile>
     <Compile Include="splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,8 +332,11 @@
     <EmbeddedResource Include="QAShow.resx">
       <DependentUpon>QAShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Questions.resx">
-      <DependentUpon>Questions.cs</DependentUpon>
+    <EmbeddedResource Include="QuestionsOption.resx">
+      <DependentUpon>QuestionsOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuestionsYesNO.resx">
+      <DependentUpon>QuestionsYesNO.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

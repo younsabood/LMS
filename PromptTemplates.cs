@@ -47,6 +47,7 @@ namespace LMS
             5. PROVIDE an 'explanation' field that derives its content directly from " + SourceDocument + @".pdf, offering a detailed academic rationale.
             6. ENSURE questions distribute evenly across document sections to cover full content breadth as found in " + SourceDocument + @".pdf.
             7. ALL answers and explanations MUST be derived from " + SourceDocument + @".pdf content.
+            8. QUESTIONS MUST HAVE RANDOMLY DISTRIBUTED 'Yes' AND 'No' ANSWERS - do not follow a predictable pattern like alternating Yes/No or grouping similar answers together. However, ensure the FIRST question must have an answer of 'Yes' and the LAST question must have an answer of 'No'.
 
             [MANDATORY OUTPUT FORMAT]
             The answer ONE Option
@@ -57,7 +58,6 @@ namespace LMS
                 ""answer"": ""Yes|No"",
                 ""source"": ""SourceDocument.pdf (Page X)"",
                 ""explanation"": ""Comprehensive academic rationale derived directly from SourceDocument.pdf"",
-                ""reasoning"": ""Concise logical pathway to the answer"",
                 ""difficulty"": """ + DifficultyPlaceholder + @"/10"",
                 ""domain"": """ + ContentDomainPlaceholder + @"""
               }

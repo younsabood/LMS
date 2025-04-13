@@ -50,6 +50,7 @@ namespace LMS
         private static void CheckTrialPeriod()
         {
             DateTime? storedStartDate = GetTrialStartDate();
+            AI.DateTime = storedStartDate.Value;
             DateTime currentDate = DateTime.Today;
 
             if (storedStartDate == null)
@@ -59,6 +60,7 @@ namespace LMS
             }
 
             DateTime expirationDate = storedStartDate.Value.AddDays(30);
+            AI.expirationDate = expirationDate;
 
             if (currentDate > expirationDate)
             {

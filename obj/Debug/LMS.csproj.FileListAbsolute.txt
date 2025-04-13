@@ -4,7 +4,6 @@ F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.LMSHome.resources
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.LoginPage.resources
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.Properties.Resources.resources
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.QAShow.resources
-F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.Questions.resources
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.cache
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.csproj.CoreCompileInputs.cache
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.exe
@@ -106,3 +105,5 @@ F:\SVU\Project\LMS\LMS\LMS\bin\Debug\System.Text.Json.xml
 F:\SVU\Project\LMS\LMS\LMS\bin\Debug\System.Threading.Tasks.Extensions.xml
 F:\SVU\Project\LMS\LMS\LMS\bin\Debug\nl\PdfiumViewer.resources.dll
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.csproj.Up2Date
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.QuestionsOption.resources
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.QuestionsYesNO.resources
