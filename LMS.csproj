@@ -51,6 +51,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GenerativeAI, Version=2.5.6.0, Culture=neutral, PublicKeyToken=125a6b2231c8ea71, processorArchitecture=MSIL">
       <HintPath>..\packages\Google_GenerativeAI.2.5.6\lib\net462\GenerativeAI.dll</HintPath>
@@ -311,6 +314,9 @@
     <Compile Include="SqlHelper.cs" />
     <Compile Include="TokenResponse.cs" />
     <Compile Include="UserInfo.cs" />
+    <EmbeddedResource Include="AuthForm.resx">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HtmlMultipleChoice.resx">
       <DependentUpon>HtmlMultipleChoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,6 +344,9 @@
     <EmbeddedResource Include="QuestionsYesNO.resx">
       <DependentUpon>QuestionsYesNO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="splash.resx">
+      <DependentUpon>splash.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -353,6 +362,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icon.ico" />
     <Content Include="LMS.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

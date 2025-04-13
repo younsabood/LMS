@@ -38,17 +38,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.google = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.exit = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.logparent.SuspendLayout();
             this.log.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -172,6 +172,16 @@
             this.panel1.Size = new System.Drawing.Size(840, 594);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(237, 544);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(371, 36);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Your PDFs Smarter With AI";
+            // 
             // exit
             // 
             this.exit.AnimatedGIF = true;
@@ -189,17 +199,6 @@
             this.exit.TabIndex = 21;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::LMS.Properties.Resources.svgviewer_output;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(244, 64);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 4;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // webView
             // 
             this.webView.AllowExternalDrop = true;
@@ -211,15 +210,16 @@
             this.webView.TabIndex = 5;
             this.webView.ZoomFactor = 1D;
             // 
-            // label1
+            // guna2PictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(237, 544);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 36);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Your PDFs Smarter With AI";
+            this.guna2PictureBox1.Image = global::LMS.Properties.Resources.svgviewer_output;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(244, 64);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 4;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // LoginPage
             // 
@@ -242,8 +242,8 @@
             this.log.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

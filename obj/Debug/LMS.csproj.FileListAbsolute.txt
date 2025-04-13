@@ -107,3 +107,5 @@ F:\SVU\Project\LMS\LMS\LMS\bin\Debug\nl\PdfiumViewer.resources.dll
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.csproj.Up2Date
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.QuestionsOption.resources
 F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.QuestionsYesNO.resources
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.AuthForm.resources
+F:\SVU\Project\LMS\LMS\LMS\obj\Debug\LMS.splash.resources
