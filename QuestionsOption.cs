@@ -15,7 +15,7 @@ namespace LMS
         public QuestionsOption(string question, string correctAnswer, List<string> options, string Explanation, string Difficulty, int QACount, string Source)
         {
             InitializeComponent();
-            this.Height = 600;
+            this.Height = 700;
             this.Width = 700;
             QAcount = QACount;
 

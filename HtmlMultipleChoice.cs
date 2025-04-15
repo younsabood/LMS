@@ -317,9 +317,9 @@ namespace LMS
                 ? baseStyles + @"
                     .card-face,.option,.options,body{display:flex}
                     *{box-sizing:border-box;margin:0;padding:0}
-                    body{font-family:'Segoe UI',sans-serif;background:#fcfaf5;align-items:center;justify-content:center;min-height:90vh;padding:20px;color:#333;line-height:1.5;direction:rtl;text-align:right}
-                    .flip-container{perspective:900px;width:100%;max-width:900px;margin:auto}
-                    .card{width:100%;height:auto;min-height:500px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
+                    body{font-family:'Segoe UI',sans-serif;background:#fcfaf5;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:rtl;text-align:right}
+                    .flip-container{perspective:1000px;width:100%;max-width:900px;margin:auto}
+                    .card{width:100%;height:auto;min-height:550px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
                     .card-back,.flip-container.flipped .card{transform:rotateY(-180deg)}
                     .card-face{background:#fff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,0.1);position:absolute;width:100%;height:100%;backface-visibility:hidden;padding:30px;flex-direction:column;justify-content:space-between}
                     .card-front{z-index:2}
@@ -341,9 +341,9 @@ namespace LMS
                 : baseStyles + @"
                     .card-face,.option,.options,body{display:flex}
                     *{box-sizing:border-box;margin:0;padding:0}
-                    body{font-family:'Segoe UI',sans-serif;background:#fcfaf5;align-items:center;justify-content:center;min-height:90vh;padding:20px;color:#333;line-height:1.5;direction:ltr}
-                    .flip-container{perspective:900px;width:100%;max-width:900px;margin:auto}
-                    .card{width:100%;height:auto;min-height:500px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
+                    body{font-family:'Segoe UI',sans-serif;background:#fcfaf5;align-items:center;justify-content:center;min-height:100vh;padding:20px;color:#333;line-height:1.5;direction:ltr}
+                    .flip-container{perspective:1000px;width:100%;max-width:900px;margin:auto}
+                    .card{width:100%;height:auto;min-height:550px;transition:transform .6s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;position:relative}
                     .card-back,.flip-container.flipped .card{transform:rotateY(180deg)}
                     .card-face{background:#fff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,0.1);position:absolute;width:100%;height:100%;backface-visibility:hidden;padding:30px;flex-direction:column;justify-content:space-between}
                     .card-front{z-index:2}

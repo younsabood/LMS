@@ -35,8 +35,6 @@
             this.drag = new Guna.UI2.WinForms.Guna2Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.PicPDF2 = new System.Windows.Forms.PictureBox();
             this.PicPDF1 = new System.Windows.Forms.PictureBox();
             this.Reset = new Guna.UI2.WinForms.Guna2Button();
@@ -70,8 +68,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
@@ -99,10 +97,10 @@
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl.ItemSize = new System.Drawing.Size(180, 40);
             this.TabControl.Location = new System.Drawing.Point(0, 0);
-            this.TabControl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(957, 573);
+            this.TabControl.Size = new System.Drawing.Size(1481, 834);
             this.TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(151)))), ((int)(((byte)(82)))));
             this.TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,7 +131,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(949, 525);
+            this.tabPage1.Size = new System.Drawing.Size(1473, 786);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Uplade";
             // 
@@ -146,9 +144,8 @@
             this.guna2GroupBox2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox2.ForeColor = System.Drawing.Color.White;
             this.guna2GroupBox2.Location = new System.Drawing.Point(0, 0);
-            this.guna2GroupBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.Size = new System.Drawing.Size(949, 525);
+            this.guna2GroupBox2.Size = new System.Drawing.Size(1473, 786);
             this.guna2GroupBox2.TabIndex = 8;
             this.guna2GroupBox2.Text = "Uploade PDF";
             // 
@@ -162,10 +159,9 @@
             this.drag.Cursor = System.Windows.Forms.Cursors.Hand;
             this.drag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drag.Location = new System.Drawing.Point(0, 40);
-            this.drag.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.drag.Name = "drag";
-            this.drag.Padding = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.drag.Size = new System.Drawing.Size(949, 485);
+            this.drag.Padding = new System.Windows.Forms.Padding(15);
+            this.drag.Size = new System.Drawing.Size(1473, 746);
             this.drag.TabIndex = 6;
             // 
             // panel1
@@ -174,11 +170,10 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.Start);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(12, 118);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel1.Location = new System.Drawing.Point(15, 285);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.panel1.Size = new System.Drawing.Size(925, 353);
+            this.panel1.Padding = new System.Windows.Forms.Padding(15);
+            this.panel1.Size = new System.Drawing.Size(1443, 446);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -189,8 +184,6 @@
             this.panel2.Controls.Add(this.PicPDF2);
             this.panel2.Controls.Add(this.PicPDF1);
             this.panel2.Controls.Add(this.Reset);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.eupdate);
             this.panel2.Controls.Add(this.supdate);
             this.panel2.Controls.Add(this.label5);
@@ -207,68 +200,36 @@
             this.panel2.Controls.Add(this.type);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(12, 14);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel2.Location = new System.Drawing.Point(15, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(901, 289);
+            this.panel2.Size = new System.Drawing.Size(1413, 365);
             this.panel2.TabIndex = 3;
             this.panel2.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel2_DragDrop);
             this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel2_DragEnter);
             this.panel2.DoubleClick += new System.EventHandler(this.panel2_DoubleClick);
             // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(633, 169);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 19);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Example Exam";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(778, 169);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 19);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Source Document";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PicPDF2
             // 
-            this.PicPDF2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PicPDF2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PicPDF2.Location = new System.Drawing.Point(636, 12);
-            this.PicPDF2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.PicPDF2.Location = new System.Drawing.Point(1088, 20);
             this.PicPDF2.Name = "PicPDF2";
-            this.PicPDF2.Size = new System.Drawing.Size(125, 142);
+            this.PicPDF2.Size = new System.Drawing.Size(154, 186);
             this.PicPDF2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicPDF2.TabIndex = 5;
             this.PicPDF2.TabStop = false;
             // 
             // PicPDF1
             // 
-            this.PicPDF1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PicPDF1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PicPDF1.Location = new System.Drawing.Point(781, 12);
-            this.PicPDF1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.PicPDF1.Location = new System.Drawing.Point(1259, 20);
             this.PicPDF1.Name = "PicPDF1";
-            this.PicPDF1.Size = new System.Drawing.Size(120, 142);
+            this.PicPDF1.Size = new System.Drawing.Size(154, 186);
             this.PicPDF1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicPDF1.TabIndex = 4;
             this.PicPDF1.TabStop = false;
             // 
             // Reset
             // 
-            this.Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Reset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Reset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Reset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -276,10 +237,9 @@
             this.Reset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(196)))), ((int)(((byte)(127)))));
             this.Reset.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Reset.ForeColor = System.Drawing.Color.White;
-            this.Reset.Location = new System.Drawing.Point(627, 242);
-            this.Reset.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Reset.Location = new System.Drawing.Point(1088, 304);
             this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(271, 41);
+            this.Reset.Size = new System.Drawing.Size(325, 45);
             this.Reset.TabIndex = 17;
             this.Reset.Text = "Reset";
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
@@ -289,10 +249,9 @@
             this.eupdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.eupdate.ForeColor = System.Drawing.Color.Black;
-            this.eupdate.Location = new System.Drawing.Point(222, 257);
-            this.eupdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.eupdate.Location = new System.Drawing.Point(228, 304);
             this.eupdate.Name = "eupdate";
-            this.eupdate.Size = new System.Drawing.Size(348, 24);
+            this.eupdate.Size = new System.Drawing.Size(658, 33);
             this.eupdate.TabIndex = 16;
             // 
             // supdate
@@ -300,10 +259,9 @@
             this.supdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.supdate.ForeColor = System.Drawing.Color.Black;
-            this.supdate.Location = new System.Drawing.Point(226, 219);
-            this.supdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.supdate.Location = new System.Drawing.Point(228, 260);
             this.supdate.Name = "supdate";
-            this.supdate.Size = new System.Drawing.Size(348, 24);
+            this.supdate.Size = new System.Drawing.Size(658, 33);
             this.supdate.TabIndex = 15;
             // 
             // label5
@@ -312,8 +270,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(2, 63);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(3, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 23);
             this.label5.TabIndex = 14;
@@ -345,10 +302,9 @@
             "Philosophy and Ethics",
             "Religion and Spirituality",
             "Miscellaneous"});
-            this.contentDomain.Location = new System.Drawing.Point(226, 49);
-            this.contentDomain.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.contentDomain.Location = new System.Drawing.Point(228, 55);
             this.contentDomain.Name = "contentDomain";
-            this.contentDomain.Size = new System.Drawing.Size(348, 36);
+            this.contentDomain.Size = new System.Drawing.Size(370, 36);
             this.contentDomain.TabIndex = 13;
             // 
             // label4
@@ -357,8 +313,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(2, 101);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(3, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(195, 23);
             this.label4.TabIndex = 12;
@@ -384,10 +339,9 @@
             "Norwegian",
             "Icelandic",
             "Afrikaans"});
-            this.language.Location = new System.Drawing.Point(226, 87);
-            this.language.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.language.Location = new System.Drawing.Point(228, 97);
             this.language.Name = "language";
-            this.language.Size = new System.Drawing.Size(348, 36);
+            this.language.Size = new System.Drawing.Size(370, 36);
             this.language.TabIndex = 11;
             // 
             // label3
@@ -396,8 +350,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(2, 180);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(3, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(220, 23);
             this.label3.TabIndex = 10;
@@ -409,8 +362,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(2, 25);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(3, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 23);
             this.label2.TabIndex = 9;
@@ -422,8 +374,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.SourceDocument.AutoSize = true;
             this.SourceDocument.ForeColor = System.Drawing.Color.Black;
-            this.SourceDocument.Location = new System.Drawing.Point(2, 219);
-            this.SourceDocument.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SourceDocument.Location = new System.Drawing.Point(3, 260);
             this.SourceDocument.Name = "SourceDocument";
             this.SourceDocument.Size = new System.Drawing.Size(224, 23);
             this.SourceDocument.TabIndex = 3;
@@ -435,8 +386,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ExampleExam.AutoSize = true;
             this.ExampleExam.ForeColor = System.Drawing.Color.Black;
-            this.ExampleExam.Location = new System.Drawing.Point(2, 257);
-            this.ExampleExam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ExampleExam.Location = new System.Drawing.Point(3, 304);
             this.ExampleExam.Name = "ExampleExam";
             this.ExampleExam.Size = new System.Drawing.Size(200, 23);
             this.ExampleExam.TabIndex = 4;
@@ -448,8 +398,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(2, 142);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(3, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 23);
             this.label1.TabIndex = 8;
@@ -460,15 +409,14 @@
             this.qanum.BackColor = System.Drawing.Color.Transparent;
             this.qanum.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.qanum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.qanum.Location = new System.Drawing.Point(226, 128);
-            this.qanum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.qanum.Location = new System.Drawing.Point(228, 139);
             this.qanum.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.qanum.Name = "qanum";
-            this.qanum.Size = new System.Drawing.Size(201, 35);
+            this.qanum.Size = new System.Drawing.Size(176, 38);
             this.qanum.TabIndex = 7;
             this.qanum.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(151)))), ((int)(((byte)(82)))));
             this.qanum.Value = new decimal(new int[] {
@@ -482,8 +430,7 @@
             this.deffnum.BackColor = System.Drawing.Color.Transparent;
             this.deffnum.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.deffnum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deffnum.Location = new System.Drawing.Point(226, 169);
-            this.deffnum.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.deffnum.Location = new System.Drawing.Point(228, 183);
             this.deffnum.Maximum = new decimal(new int[] {
             10,
             0,
@@ -495,7 +442,7 @@
             0,
             0});
             this.deffnum.Name = "deffnum";
-            this.deffnum.Size = new System.Drawing.Size(201, 33);
+            this.deffnum.Size = new System.Drawing.Size(176, 36);
             this.deffnum.TabIndex = 6;
             this.deffnum.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(151)))), ((int)(((byte)(82)))));
             this.deffnum.Value = new decimal(new int[] {
@@ -519,10 +466,9 @@
             "Regular Multiple Choice",
             "Math Multiple Choice",
             "Programming Multiple Choice"});
-            this.type.Location = new System.Drawing.Point(226, 12);
-            this.type.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.type.Location = new System.Drawing.Point(228, 13);
             this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(348, 36);
+            this.type.Size = new System.Drawing.Size(370, 36);
             this.type.TabIndex = 5;
             // 
             // Start
@@ -535,10 +481,9 @@
             this.Start.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(196)))), ((int)(((byte)(127)))));
             this.Start.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Start.ForeColor = System.Drawing.Color.White;
-            this.Start.Location = new System.Drawing.Point(12, 298);
-            this.Start.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Start.Location = new System.Drawing.Point(15, 386);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(901, 41);
+            this.Start.Size = new System.Drawing.Size(1413, 45);
             this.Start.TabIndex = 2;
             this.Start.Text = "Start Uploade";
             this.Start.Click += new System.EventHandler(this.Start_Click);
@@ -553,10 +498,9 @@
             this.dragimage.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.dragimage.BorderThickness = 1;
             this.dragimage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dragimage.Location = new System.Drawing.Point(12, 14);
-            this.dragimage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dragimage.Location = new System.Drawing.Point(15, 15);
             this.dragimage.Name = "dragimage";
-            this.dragimage.Size = new System.Drawing.Size(925, 104);
+            this.dragimage.Size = new System.Drawing.Size(1443, 270);
             this.dragimage.TabIndex = 0;
             this.dragimage.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragimage_DragDrop);
             this.dragimage.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragimage_DragEnter);
@@ -565,8 +509,7 @@
             // Path_2
             // 
             this.Path_2.AutoSize = true;
-            this.Path_2.Location = new System.Drawing.Point(167, 492);
-            this.Path_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Path_2.Location = new System.Drawing.Point(200, 539);
             this.Path_2.Name = "Path_2";
             this.Path_2.Size = new System.Drawing.Size(0, 26);
             this.Path_2.TabIndex = 7;
@@ -575,8 +518,7 @@
             // Path_1
             // 
             this.Path_1.AutoSize = true;
-            this.Path_1.Location = new System.Drawing.Point(167, 452);
-            this.Path_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Path_1.Location = new System.Drawing.Point(200, 495);
             this.Path_1.Name = "Path_1";
             this.Path_1.Size = new System.Drawing.Size(0, 26);
             this.Path_1.TabIndex = 6;
@@ -590,7 +532,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(949, 524);
+            this.tabPage2.Size = new System.Drawing.Size(1473, 786);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Account ";
             // 
@@ -608,7 +550,7 @@
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(949, 156);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(1473, 171);
             this.guna2GroupBox1.TabIndex = 0;
             this.guna2GroupBox1.Text = "Setting";
             // 
@@ -616,10 +558,9 @@
             // 
             this.expiration.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expiration.ForeColor = System.Drawing.Color.Black;
-            this.expiration.Location = new System.Drawing.Point(285, 93);
-            this.expiration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.expiration.Location = new System.Drawing.Point(342, 102);
             this.expiration.Name = "expiration";
-            this.expiration.Size = new System.Drawing.Size(512, 49);
+            this.expiration.Size = new System.Drawing.Size(614, 54);
             this.expiration.TabIndex = 2;
             this.expiration.Text = "Expiration Free Trial In :  ";
             this.expiration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -628,10 +569,9 @@
             // 
             this.starting.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.starting.ForeColor = System.Drawing.Color.Black;
-            this.starting.Location = new System.Drawing.Point(285, 44);
-            this.starting.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.starting.Location = new System.Drawing.Point(342, 48);
             this.starting.Name = "starting";
-            this.starting.Size = new System.Drawing.Size(512, 49);
+            this.starting.Size = new System.Drawing.Size(614, 54);
             this.starting.TabIndex = 1;
             this.starting.Text = "Starting Free Trial In :  ";
             this.starting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -643,29 +583,29 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.28905F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.AccountPic, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 41);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 45);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(278, 104);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(333, 114);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.Gmail, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.UserName, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(96, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(115, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(182, 104);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(218, 114);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // Gmail
@@ -673,11 +613,11 @@
             this.Gmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gmail.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gmail.ForeColor = System.Drawing.Color.Black;
-            this.Gmail.Location = new System.Drawing.Point(17, 52);
-            this.Gmail.Margin = new System.Windows.Forms.Padding(17, 0, 2, 0);
+            this.Gmail.Location = new System.Drawing.Point(20, 57);
+            this.Gmail.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.Gmail.Name = "Gmail";
-            this.Gmail.Padding = new System.Windows.Forms.Padding(0, 0, 0, 14);
-            this.Gmail.Size = new System.Drawing.Size(163, 52);
+            this.Gmail.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.Gmail.Size = new System.Drawing.Size(195, 57);
             this.Gmail.TabIndex = 1;
             this.Gmail.Text = "label2";
             this.Gmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -687,11 +627,11 @@
             this.UserName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.ForeColor = System.Drawing.Color.Black;
-            this.UserName.Location = new System.Drawing.Point(17, 0);
-            this.UserName.Margin = new System.Windows.Forms.Padding(17, 0, 2, 0);
+            this.UserName.Location = new System.Drawing.Point(20, 0);
+            this.UserName.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.UserName.Name = "UserName";
-            this.UserName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
-            this.UserName.Size = new System.Drawing.Size(163, 52);
+            this.UserName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.UserName.Size = new System.Drawing.Size(195, 57);
             this.UserName.TabIndex = 0;
             this.UserName.Text = "label1";
             this.UserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -700,11 +640,10 @@
             // 
             this.AccountPic.BackColor = System.Drawing.Color.Transparent;
             this.AccountPic.ImageRotate = 0F;
-            this.AccountPic.Location = new System.Drawing.Point(2, 3);
-            this.AccountPic.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.AccountPic.Location = new System.Drawing.Point(3, 3);
             this.AccountPic.Name = "AccountPic";
             this.AccountPic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.AccountPic.Size = new System.Drawing.Size(91, 98);
+            this.AccountPic.Size = new System.Drawing.Size(109, 108);
             this.AccountPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.AccountPic.TabIndex = 1;
             this.AccountPic.TabStop = false;
@@ -715,19 +654,17 @@
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(957, 59);
+            this.guna2Panel1.Size = new System.Drawing.Size(1481, 65);
             this.guna2Panel1.TabIndex = 1;
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = global::LMS.Properties.Resources.svgviewer_output;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(2, 3);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 3);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(191, 54);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(229, 59);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 5;
             this.guna2PictureBox1.TabStop = false;
@@ -736,49 +673,49 @@
             // 
             this.guna2Panel2.Controls.Add(this.TabControl);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 59);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 65);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(957, 573);
+            this.guna2Panel2.Size = new System.Drawing.Size(1481, 834);
             this.guna2Panel2.TabIndex = 2;
             // 
-            // label8
+            // label6
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(440, 142);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(381, 27);
-            this.label8.TabIndex = 15;
-            this.label8.Visible = false;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(1259, 218);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(151, 21);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Source Document";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // label7
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(468, 188);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(381, 27);
-            this.label9.TabIndex = 16;
-            this.label9.Visible = false;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(1088, 218);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 21);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Example Exam";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LMSHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(957, 632);
+            this.ClientSize = new System.Drawing.Size(1481, 899);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "LMSHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NexusPDF Demo";
@@ -850,7 +787,5 @@
         private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
     }
 }
