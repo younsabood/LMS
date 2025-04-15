@@ -42,10 +42,10 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.progressBar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(10, 530);
+            this.panel1.Location = new System.Drawing.Point(10, 330);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.panel1.Size = new System.Drawing.Size(1280, 60);
+            this.panel1.Size = new System.Drawing.Size(780, 60);
             this.panel1.TabIndex = 1;
             // 
             // progressBar
@@ -62,7 +62,7 @@
             this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(158)))), ((int)(((byte)(68)))));
             this.progressBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(198)))), ((int)(((byte)(144)))));
             this.progressBar.ShowText = true;
-            this.progressBar.Size = new System.Drawing.Size(1260, 30);
+            this.progressBar.Size = new System.Drawing.Size(760, 30);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 0;
             this.progressBar.Text = "0";
@@ -77,7 +77,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 20);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1280, 510);
+            this.panel2.Size = new System.Drawing.Size(780, 310);
             this.panel2.TabIndex = 2;
             // 
             // splash
@@ -85,7 +85,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1300, 600);
+            this.ClientSize = new System.Drawing.Size(800, 400);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;

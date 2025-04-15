@@ -17,7 +17,7 @@ namespace LMS
         public QuestionsYesNO(string question, string Answer, string Explanation, string Difficulty, string Source, int QACount)
         {
             InitializeComponent();
-            this.Height = 700;
+            this.Height = 600;
             this.Width = 700;
             QAcount = QACount;
             try

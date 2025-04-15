@@ -47,7 +47,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1425, 760);
+            this.panel1.Size = new System.Drawing.Size(1184, 661);
             this.panel1.TabIndex = 0;
             // 
             // exam
@@ -60,7 +60,7 @@
             this.exam.Location = new System.Drawing.Point(0, 0);
             this.exam.Name = "exam";
             this.exam.Padding = new System.Windows.Forms.Padding(25, 0, 20, 0);
-            this.exam.Size = new System.Drawing.Size(1425, 689);
+            this.exam.Size = new System.Drawing.Size(1184, 590);
             this.exam.TabIndex = 1;
             // 
             // panel2
@@ -69,9 +69,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 689);
+            this.panel2.Location = new System.Drawing.Point(0, 590);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1425, 71);
+            this.panel2.Size = new System.Drawing.Size(1184, 71);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -102,10 +102,10 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1425, 760);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "QAShow";

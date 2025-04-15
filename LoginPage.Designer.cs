@@ -65,7 +65,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 600F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 600F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1300, 600);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 600);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // logparent
@@ -73,7 +73,7 @@
             this.logparent.BackColor = System.Drawing.Color.White;
             this.logparent.Controls.Add(this.log);
             this.logparent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logparent.Location = new System.Drawing.Point(849, 3);
+            this.logparent.Location = new System.Drawing.Point(749, 3);
             this.logparent.Name = "logparent";
             this.logparent.Size = new System.Drawing.Size(448, 594);
             this.logparent.TabIndex = 2;
@@ -169,7 +169,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 594);
+            this.panel1.Size = new System.Drawing.Size(740, 594);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -226,7 +226,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1300, 600);
+            this.ClientSize = new System.Drawing.Size(1200, 600);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
